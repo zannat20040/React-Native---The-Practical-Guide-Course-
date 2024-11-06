@@ -3,4 +3,4 @@
 3. React native basic components are: View, Text, Button, TextInput, Flatlist etc
 4. Among them, Most using components are: View, Text, TextInput
 5. We can style in react native using: inline css & stylesheet object
-6.  
+6. style obejct can be applied on only: View & text  
