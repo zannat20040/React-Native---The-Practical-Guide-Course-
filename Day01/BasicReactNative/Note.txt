@@ -1,0 +1,6 @@
+1. We can not use here HTML Tags & Raw CSS , because it is not work in browser.
+2. React native provide some basic component , we can create new component by using these basic component.
+3. React native basic components are: View, Text, Button, TextInput, Flatlist etc
+4. Among them, Most using components are: View, Text, TextInput
+5. We can style in react native using: inline css & stylesheet object
+6.  
