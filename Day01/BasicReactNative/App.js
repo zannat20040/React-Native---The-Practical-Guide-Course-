@@ -1,5 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function App() {
   return (
@@ -14,47 +14,72 @@ export default function App() {
 
     // --------- START LEARN LAYOUT & FLEXBOX -------
 
-    <View style={styles.container2}>
-      <StatusBar style='auto' />
-      <TextInput placeholder='List your learning' style={styles.input}/>
-      <Button title={'Add'}/>
+    <View style={styles.container3}>
+      <View style={styles.container2}>
+        <StatusBar style="auto" />
+        <TextInput placeholder="List your learning" style={styles.input} />
+        <Button title={"Add"} />
+      </View>
+      <View style={styles.divider}></View>
+      <Text style={styles.container4}>See the List:</Text>
     </View>
-
   );
 }
 
 const styles = StyleSheet.create({
-  container2:{
-    padding:20,
-    marginTop:10,
-    flexDirection:'row',
-    justifyContent:'space-between',
-    gap:5
-  },
+  // BASIC
+
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
-  text:{
-    color:'purple',
-    fontSize:20,
-    padding:10
+  text: {
+    color: "purple",
+    fontSize: 20,
+    padding: 10,
   },
-  button:{
-    padding:16,
-    borderColor:'green',
-    borderWidth:2,
-    borderRadius:5,
-    marginTop:10
+  button: {
+    padding: 16,
+    borderColor: "green",
+    borderWidth: 2,
+    borderRadius: 5,
+    marginTop: 10,
   },
-  input:{
-    borderWidth:1 ,
-    borderRadius:5,
-    padding:3,
-    paddingLeft:10,
-    borderColor:'gray',
-    width:'85%'
-  }
+
+  // LAYOUT & FLEXBOX
+
+  container2: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: 5,
+    flex:1,
+    backgroundColor:"white"
+  },
+  container3: {
+    padding: 20,
+    marginTop: 10,
+    height:610,
+    // backgroundColor:'black'
+  },
+  container4:{
+    flex:5,
+    paddingVertical:20
+    // backgroundColor:'gray'
+  },
+  input: {
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 3,
+    paddingLeft: 10,
+    borderColor: "gray",
+    width: "85%",
+  },
+  divider: {
+    borderBottomColor: "gray",
+    borderBottomWidth: 1,
+    // marginVertical:10 
+  },
 });
