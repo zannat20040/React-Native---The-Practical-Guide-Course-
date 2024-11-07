@@ -1,28 +1,61 @@
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { Button, Modal, StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 
-export default function InputData({getInput,addInput,storeInput}) {
+export default function InputData({
+  getInput,
+  addInput,
+  storeInput,
+  setIsModalVisible,
+  isModalVisible,
+}) {
   return (
-    <View style={styles.container2}>
-      <TextInput
-        placeholder="List your learning"
-        style={styles.input}
-        onChangeText={getInput}
-        value={storeInput}
-      />
-      <Button title={"Add"} onPress={addInput} />
-    </View>
+    <Modal animationType="slide" transparent={true} visible={isModalVisible}>
+      <View style={styles.container2}>
+        <View
+          style={{
+            backgroundColor: "#4AE0F7",
+            padding: 20,
+            borderRadius: 10,
+            gap: 5,
+            // justifyContent: "center",
+            height: "30%",
+            alignItems: "center",
+          }}
+        >
+          <TextInput
+            placeholder="List your learning"
+            style={styles.input}
+            onChangeText={getInput}
+            value={storeInput}
+          />
+          <View style={styles.buttonContainer}>
+            <View style={{ width: 100 }}>
+              <Button title={"Add"} onPress={addInput} />
+            </View>
+            <View style={{ width: 100 }}>
+              <Button
+                title={"Cancel"}
+                onPress={() => setIsModalVisible(false)}
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </Modal>
   );
 }
 
 const styles = StyleSheet.create({
   container2: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    justifyContent: "flex-end",
     gap: 5,
-    flex: 1,
     backgroundColor: "white",
+    flex: 1,
+    backgroundColor: "transparent",
+  },
+  buttonContainer: {
+    flexDirection: "row",
+    gap: 5,
   },
   input: {
     borderWidth: 1,
@@ -30,6 +63,6 @@ const styles = StyleSheet.create({
     padding: 3,
     paddingLeft: 10,
     borderColor: "gray",
-    width: "85%",
+    width: "100%",
   },
 });

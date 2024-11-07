@@ -1,20 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import {
-  Button,
-  FlatList,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { Button, FlatList, StyleSheet, Text, View } from "react-native";
 import GetAllData from "./Component/GetAllData";
 import InputData from "./Component/InputData";
 
 export default function App() {
   const [storeInput, setStoreInput] = useState("");
   const [getAllInput, setGetAllInput] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const getInput = (text) => {
     setStoreInput(text);
@@ -26,20 +19,32 @@ export default function App() {
       { text: storeInput, id: Math.random() },
     ]);
     setStoreInput("");
+    setIsModalVisible(false);
   };
 
   const handleDelete = (id) => {
     console.log("id: ", id);
     setGetAllInput((item) => item.filter((data) => data.id !== id));
   };
+
+  
   return (
     <View style={styles.container3}>
       <StatusBar style="auto" />
       <InputData
-        getInput={getInput}
-        addInput={addInput}
-        storeInput={storeInput}
-      />
+          getInput={getInput}
+          addInput={addInput}
+          storeInput={storeInput}
+          setIsModalVisible={setIsModalVisible}
+          isModalVisible={isModalVisible}
+        />
+
+      <View style={{ flex: 1, marginTop: 10 }}>
+        <Button
+          title="Show The Input Modal"
+          onPress={() => setIsModalVisible(true)}
+        />
+      </View>
       <View style={styles.divider}></View>
 
       <View style={styles.container4}>
@@ -71,7 +76,7 @@ const styles = StyleSheet.create({
     // backgroundColor:'black'
   },
   container4: {
-    flex: 5,
+    flex: 8,
     paddingVertical: 20,
     paddingBottom: 0,
     // backgroundColor:'gray'
