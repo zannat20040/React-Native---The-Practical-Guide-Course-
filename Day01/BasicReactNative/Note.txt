@@ -3,4 +3,20 @@
 3. React native basic components are: View, Text, Button, TextInput, Flatlist etc
 4. Among them, Most using components are: View, Text, TextInput
 5. We can style in react native using: inline css & stylesheet object
-6. style obejct can be applied on only: View & text  
+6. style obejct can be applied on only: View & text 
+7. style can't be inharit from parent to child in native.
+8. There are some styling difference between ios & android. Like , Border radius on Text is not works for Ios. We  need to give it on View.
+9. We can use useState like React to store info.
+10. We can use Event handler like React. 
+11. Event Handler ==> onPress, onChangeText
+12. In react native, it doesn't scroll auto. That why we have to use==> ScrollView
+13. ScrollView vs Flatlist ==> Flatlist render a large array of data in a optimized way. 
+14. Use of Flatlist
+    ==> Pass the array in the data prop
+    ==> render the data through renderItems props
+    ==> need key must
+    ==> can use keyExtractor if my object doesn't carry any key property
+    ==> It takes Key property auto as Key value 
+15. We can create component & pass props in react native just like react
+16. We can not click on any element using onPress in RN
+17. We can use to make any component pressable using Pressable
