@@ -26,10 +26,9 @@ export default function App() {
     setGetAllInput((item) => item.filter((data) => data.id !== id));
   };
 
-  
   return (
     <View style={styles.container3}>
-      <StatusBar style="auto" />
+      <StatusBar style="inverted" />
       <InputData
           getInput={getInput}
           addInput={addInput}
@@ -41,6 +40,7 @@ export default function App() {
       <View style={{ flex: 1, marginTop: 10 }}>
         <Button
           title="Show The Input Modal"
+          color={'#341C5E'}
           onPress={() => setIsModalVisible(true)}
         />
       </View>
