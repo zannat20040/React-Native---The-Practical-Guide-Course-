@@ -30,17 +30,17 @@ export default function App() {
     <View style={styles.container3}>
       <StatusBar style="inverted" />
       <InputData
-          getInput={getInput}
-          addInput={addInput}
-          storeInput={storeInput}
-          setIsModalVisible={setIsModalVisible}
-          isModalVisible={isModalVisible}
-        />
+        getInput={getInput}
+        addInput={addInput}
+        storeInput={storeInput}
+        setIsModalVisible={setIsModalVisible}
+        isModalVisible={isModalVisible}
+      />
 
       <View style={{ flex: 1, marginTop: 10 }}>
         <Button
           title="Show The Input Modal"
-          color={'#341C5E'}
+          color={"#341C5E"}
           onPress={() => setIsModalVisible(true)}
         />
       </View>

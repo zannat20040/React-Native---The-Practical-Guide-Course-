@@ -1,4 +1,12 @@
-import { Button, Modal, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Button,
+  Image,
+  Modal,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import React from "react";
 
 export default function InputData({
@@ -13,14 +21,22 @@ export default function InputData({
       <View style={styles.container2}>
         <View
           style={{
-            backgroundColor: "#4AE0F7",
+            backgroundColor: "#341C5E",
             padding: 20,
+            paddingTop: 50,
             borderRadius: 10,
-            gap: 5,
-            height: "30%",
+            gap: 10,
+            height: "70%",
             alignItems: "center",
           }}
         >
+          <Image
+            source={{
+              uri: "https://w7.pngwing.com/pngs/198/278/png-transparent-arrow-and-target-goal-bullseye-computer-icons-business-mission-statement-goal-icon-text-logo-bullseye-thumbnail.png",
+            }}
+            style={{ width: 100, height: 100, marginBottom: 50 }}
+          />
+
           <TextInput
             placeholder="List your learning"
             style={styles.input}
