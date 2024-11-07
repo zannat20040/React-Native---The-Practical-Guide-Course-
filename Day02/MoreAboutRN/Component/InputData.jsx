@@ -17,7 +17,6 @@ export default function InputData({
             padding: 20,
             borderRadius: 10,
             gap: 5,
-            // justifyContent: "center",
             height: "30%",
             alignItems: "center",
           }}

@@ -1,2 +1,4 @@
 1. Ripple Effect for android & IOS
-2.
+2. Ripple Props: android_ripple
+3. Can handle Modal using: Modal 
+4. Modal props are : transparent, visible, animationType,
