@@ -2,3 +2,6 @@
 2. Ripple Props: android_ripple
 3. Can handle Modal using: Modal 
 4. Modal props are : transparent, visible, animationType,
+5. Adding image by using: <Image source={} />
+6. We can add local image using: require('/path/')  
+7. We can add live image using: uri('address')  
