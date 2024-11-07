@@ -5,7 +5,7 @@ export default function GetAllData({ item, index, handleDelete }) {
   return (
     <View style={styles.learning}>
       <Pressable
-        android_ripple={{ color: "#b278bf" }}
+        android_ripple={{ color: "#341C5E" }}
         onPress={() => handleDelete(item.id)}
       >
         <Text style={{ color: "white", padding: 10 }}>
@@ -19,7 +19,7 @@ export default function GetAllData({ item, index, handleDelete }) {
 
 const styles = StyleSheet.create({
   learning: {
-    backgroundColor: "purple",
+    backgroundColor: "#774FC2",
     borderRadius: 5,
     marginBottom: 5,
   },

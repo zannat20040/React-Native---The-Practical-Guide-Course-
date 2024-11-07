@@ -26,15 +26,17 @@ export default function InputData({
             paddingTop: 50,
             borderRadius: 10,
             gap: 10,
+            borderBottomEndRadius:0,
+            borderBottomStartRadius:0,
             height: "70%",
             alignItems: "center",
           }}
         >
           <Image
             source={{
-              uri: "https://w7.pngwing.com/pngs/198/278/png-transparent-arrow-and-target-goal-bullseye-computer-icons-business-mission-statement-goal-icon-text-logo-bullseye-thumbnail.png",
+              uri: "https://png.pngtree.com/png-clipart/20231002/original/pngtree-teacher-study-learning-png-image_13067537.png",
             }}
-            style={{ width: 100, height: 100, marginBottom: 50 }}
+            style={{ width: 150, height: 150, marginBottom: 50 }}
           />
 
           <TextInput
@@ -45,11 +47,12 @@ export default function InputData({
           />
           <View style={styles.buttonContainer}>
             <View style={{ width: 100 }}>
-              <Button title={"Add"} onPress={addInput} />
+              <Button title={"Add"} onPress={addInput} color={'#874EA3'} />
             </View>
             <View style={{ width: 100 }}>
               <Button
                 title={"Cancel"}
+                color={'#67684C'}
                 onPress={() => setIsModalVisible(false)}
               />
             </View>
@@ -78,6 +81,8 @@ const styles = StyleSheet.create({
     padding: 3,
     paddingLeft: 10,
     borderColor: "gray",
+    color:'white',
     width: "100%",
+    backgroundColor:'#8778D4'
   },
 });
