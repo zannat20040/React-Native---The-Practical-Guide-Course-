@@ -22,3 +22,41 @@ Now, I am going to add my Day 01 learning. Moving forward, I will continue updat
 - Use of `ScrollView` for scrolling content in vertical and horizontal directions
 - `Pressable` for handling touch events with more flexibility
 - `Delete` items from a list dynamically.
+## Documentation 
+
+[Core component](https://reactnative.dev/docs/intro-react-native-components)
+
+[Fundamentals](https://reactnative.dev/docs/intro-react)
+
+[TextInput Handle](https://reactnative.dev/docs/handling-text-input)
+
+[ScrollView](https://reactnative.dev/docs/using-a-scrollview)
+
+[Use of Flatlist](https://reactnative.dev/docs/using-a-listview)
+
+[Styling](https://reactnative.dev/docs/style)
+
+[Flex Layout](https://reactnative.dev/docs/flexbox)
+
+
+
+
+## Day-01, 08 November
+
+ - `Ripple Effect` used for touch feedback on Android and iOS
+ - The `android_ripple` prop is used to customize ripple effects on Android.
+ - Modals can be managed using the `Modal` component.
+- Modal Props:
+
+`transparent:` Determines if the modal background is transparent.
+
+`visible:` Controls the visibility of the modal.
+
+`animationType:` Defines the animation type for modal entrance and exit.
+
+- Images can be added using `<Image source={}/>`.
+- Use `require('/path/')` to add images stored locally.
+- Use `uri('address')` to load images from a live URL.
+## Documentation 
+
+[Image](https://reactnative.dev/docs/images)
