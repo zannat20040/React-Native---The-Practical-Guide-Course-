@@ -49,6 +49,9 @@ export default function StartScreen({ setScreen, getNumber, setGetNumber }) {
   return (
     <View>
       <View style={styles.container}>
+        <Text style={[styles.opponentText, styles.commonTextStyle]}>
+          Enter a Number
+        </Text>
         <InputField setGetNumber={setGetNumber} getNumber={getNumber} />
         <View style={styles.buttonContainer}>
           <PrimaryBtn
@@ -75,5 +78,13 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     gap: 5,
+  },
+  commonTextStyle: {
+    textAlign: "center",
+    marginBottom: 20,
+  },
+  opponentText: {
+    fontSize: 25,
+    color: "white",
   },
 });

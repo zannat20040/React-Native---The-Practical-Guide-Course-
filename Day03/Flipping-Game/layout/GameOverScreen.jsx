@@ -12,7 +12,7 @@ export default function GameOverScreen({ setScreen, getNumber, countGuess,setGet
 
   return (
     <View>
-      <PrimaryBtn label={"Go Back"} eventHandler={GoBackHandler} />
+      <PrimaryBtn label={"Start New Game"} eventHandler={GoBackHandler} />
       <View style={styles.container}>
         <View>
           <Text style={[styles.opponentText, styles.commonTextStyle]}>
