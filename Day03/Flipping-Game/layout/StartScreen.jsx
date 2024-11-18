@@ -4,7 +4,7 @@ import InputField from "../components/InputField";
 import PrimaryBtn from "../components/PrimaryBtn";
 import { StatusBar } from "expo-status-bar";
 
-export default function StartScreen() {
+export default function StartScreen({setScreen}) {
   const [getNumber, setGetNumber] = useState(null);
 
   const handleReset = () => {
@@ -36,6 +36,7 @@ export default function StartScreen() {
     }
 
     console.log(`You have given a valid number ${choosenNumber}`)
+    setScreen(1)
     // console.log(isNaN(chosenNumber))
     // console.log(isNaN(getNumber))
     // console.log(typeof(getNumber))
