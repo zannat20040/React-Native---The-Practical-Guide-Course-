@@ -1,5 +1,5 @@
 import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PrimaryBtn from "../components/PrimaryBtn";
 import Colors from "../utils/Colos";
 
@@ -16,6 +16,12 @@ export default function GameScreen({ setScreen, getNumber }) {
   const GoBackHandler = () => {
     setScreen(0);
   };
+
+  useEffect(() => {
+    if (guessNumber === parseInt(getNumber)) {
+      setScreen(2);
+    }
+  }, [minNumber, maxNumber, guessNumber, getNumber]);
 
   const hintHandler = (direction) => {
     let newMin = minNumber;

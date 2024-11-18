@@ -40,7 +40,6 @@ export default function StartScreen({ setScreen, getNumber, setGetNumber }) {
         // }
       );
     } else {
-      console.log(`You have given a valid number ${choosenNumber}`);
       setScreen(1);
     }
     // console.log(isNaN(chosenNumber))

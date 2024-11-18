@@ -5,6 +5,7 @@ import { useState } from "react";
 import GameScreen from "./layout/GameScreen";
 import { StatusBar } from "expo-status-bar";
 import Colors from "./utils/Colos";
+import GameOverScreen from "./layout/GameOverScreen";
 
 export default function App() {
   const [screen, setScreen] = useState(0);
@@ -19,10 +20,11 @@ export default function App() {
       />
     ) : screen === 1 ? (
       <GameScreen setScreen={setScreen} getNumber={getNumber} />
-    ) : (
-      0
-    );
+    ) : screen === 2 ? (
+      <GameOverScreen setScreen={setScreen} getNumber={getNumber} />
+    ) : null; // Optional: Fallback if no condition matches
 
+  console.log("screenn===>", screen);
   return (
     <LinearGradient
       style={styles.background}
