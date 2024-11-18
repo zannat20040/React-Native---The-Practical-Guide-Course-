@@ -7,3 +7,15 @@
 7.Expo-font
 8. Expo-loading
 9.
+
+
+1.Custom button using Pressable component
+2. Shadow property ==>
+    i. elevation:2 ==> how much shadow i want
+    ii. shadowColor:'#000" ==> which color shadow
+    iii. shadowOpacity: 0.58 ==> shadow opacity 
+    iv. shadowRadius: 16.0
+    v. shadowOffset: {
+      width: 0,
+      height: 12,
+    }, ==> mention shadow spreading height & width

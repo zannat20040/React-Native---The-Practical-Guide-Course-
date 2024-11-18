@@ -1,14 +1,24 @@
 import { StatusBar } from "expo-status-bar";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import PrimaryBtn from "./components/PrimaryBtn";
+import InputField from "./components/InputField";
 
 export default function App() {
+  const handleReset = () => {
+    console.log("handleReset");
+  };
+
+  const handleConfirm = () => {
+    console.log("handleConfirm");
+  };
   return (
-    <View style={styles.container}>
-      {/* <ImageBackground source={{uri:'https://cdn.prod.website-files.com/65e793af1050cc9a64a3db55/65eea23dc7531e81680d7073_Flip%20crystals%20animation%20thumbnail.png'}} resizeMode="cover"></ImageBackground> */}
-      <View style={styles.buttonContainer}>
-        <PrimaryBtn label={'Start'}/>
-        <PrimaryBtn label={'Select Level'}/>
+    <View>
+      <View style={styles.container}>
+        <InputField />
+        <View style={styles.buttonContainer}>
+          <PrimaryBtn label={"Confirm"} eventHandler={handleConfirm} />
+          <PrimaryBtn label={"Reset"} eventHandler={handleReset} />
+        </View>
       </View>
       <StatusBar style="auto" />
     </View>
@@ -17,19 +27,17 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
+    backgroundColor: "#16423C",
     justifyContent: "start",
-    marginTop:30
+    margin: 10,
+    marginTop: 30,
+    paddingVertical: 15,
+    paddingTop: 40,
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    borderRadius: 10,
   },
-  buttonContainer:{
-    flexDirection:'row',
-    alignItems:'center',
-    gap:10,
-    backgroundColor:'#E0CCFF',
-     paddingHorizontal:30,
-     paddingVertical:50,
-     borderRadius:10
-  }
+  buttonContainer: {
+    gap: 5,
+  },
 });
