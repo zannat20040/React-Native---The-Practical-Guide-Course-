@@ -19,3 +19,6 @@
       width: 0,
       height: 12,
     }, ==> mention shadow spreading height & width
+3. Using Linear Gradient
+4. Using ImageBackground 
+5. Using different type of property of TextInput

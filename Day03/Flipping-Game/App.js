@@ -1,43 +1,23 @@
-import { StatusBar } from "expo-status-bar";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
-import PrimaryBtn from "./components/PrimaryBtn";
-import InputField from "./components/InputField";
+import { ImageBackground, StyleSheet } from "react-native";
+import StartScreen from "./layout/StartScreen";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function App() {
-  const handleReset = () => {
-    console.log("handleReset");
-  };
-
-  const handleConfirm = () => {
-    console.log("handleConfirm");
-  };
   return (
-    <View>
-      <View style={styles.container}>
-        <InputField />
-        <View style={styles.buttonContainer}>
-          <PrimaryBtn label={"Confirm"} eventHandler={handleConfirm} />
-          <PrimaryBtn label={"Reset"} eventHandler={handleReset} />
-        </View>
-      </View>
-      <StatusBar style="auto" />
-    </View>
+    <LinearGradient style={styles.background}  colors={["#6A9C89", "#16423C"]}>
+      {/* <ImageBackground style={[styles.background, {opacity:0.6}]}
+         source={require('../Flipping-Game/assets/360_F_853527452_9jdfXrvgmeLEyyaSnxoh1t6tUB8HYJjO.jpg')}
+         resizeMethod="cover"
+         
+      >
+      </ImageBackground> */}
+        <StartScreen />
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#16423C",
-    justifyContent: "start",
-    margin: 10,
-    marginTop: 30,
-    paddingVertical: 15,
-    paddingTop: 40,
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    borderRadius: 10,
-  },
-  buttonContainer: {
-    gap: 5,
+  background: {
+    flex: 1,
   },
 });
