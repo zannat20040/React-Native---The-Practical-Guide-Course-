@@ -1,11 +1,6 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
-import React, { useState } from "react";
-import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
+import { StyleSheet, TextInput, View } from "react-native";
 
-export default function InputField() {
-  const [getNumber, setGetNumber] = useState("");
-  console.log(getNumber);
-
+export default function InputField({ setGetNumber, getNumber }) {
   return (
     <View style={{ alignItems: "center" }}>
       <View style={styles.inputContainer}>
@@ -13,6 +8,7 @@ export default function InputField() {
           style={styles.textField}
           // editable
           // maxLength={40}
+          maxLength={2}
           keyboardType="number-pad"
           onChangeText={(num) => setGetNumber(num)}
           value={getNumber}

@@ -1,7 +1,8 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-export default function PrimaryBtn({ label, eventHandler }) {
+export default function PrimaryBtn({ label, eventHandler}) {
+
   return (
     <Pressable style={[styles.customBtn, styles.shadow]} onPress={eventHandler}>
       <Text style={styles.customBtnText}>{label}</Text>\{" "}
