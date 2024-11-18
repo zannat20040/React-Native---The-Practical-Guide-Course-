@@ -30,7 +30,6 @@ export default function App() {
   };
 
   const handleDelete = (id) => {
-    console.log("id: ", id);
     setGetAllInput((item) => item.filter((data) => data.id !== id));
   };
   return (

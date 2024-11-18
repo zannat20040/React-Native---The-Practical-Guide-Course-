@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import Colors from "../utils/Colos";
 
 export default function PrimaryBtn({ label, eventHandler}) {
 
@@ -12,7 +13,7 @@ export default function PrimaryBtn({ label, eventHandler}) {
 
 const styles = StyleSheet.create({
   customBtn: {
-    backgroundColor: "#6A9C89",
+    backgroundColor: Colors.dark,
     paddingVertical: 10,
     paddingHorizontal: 30,
     borderRadius: 150,

@@ -1,4 +1,5 @@
 import { StyleSheet, TextInput, View } from "react-native";
+import Colors from "../utils/Colos";
 
 export default function InputField({ setGetNumber, getNumber }) {
   return (
@@ -23,12 +24,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 10,
     borderBottomWidth: 2,
-    borderBottomColor: "#E9EFEC",
+    borderBottomColor: Colors.light,
     justifyContent: "center",
     width: 100,
   },
   textField: {
-    color: "#E9EFEC",
+    color: Colors.light,
     fontSize: 50,
     height: 80,
   },

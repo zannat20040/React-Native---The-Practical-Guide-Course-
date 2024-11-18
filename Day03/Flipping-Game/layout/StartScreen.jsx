@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import InputField from "../components/InputField";
 import PrimaryBtn from "../components/PrimaryBtn";
 import { StatusBar } from "expo-status-bar";
+import Colors from "../utils/Colos";
 
 export default function StartScreen({ setScreen }) {
   const [getNumber, setGetNumber] = useState(null);
 
   const handleReset = () => {
-    console.log("handleReset");
     setGetNumber(null);
   };
 
@@ -69,7 +69,7 @@ export default function StartScreen({ setScreen }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#16423C",
+    backgroundColor: Colors.deepDark,
     justifyContent: "start",
     paddingVertical: 15,
     paddingTop: 40,

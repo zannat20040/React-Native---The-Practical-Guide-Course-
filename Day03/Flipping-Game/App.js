@@ -4,6 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import GameScreen from "./layout/GameScreen";
 import { StatusBar } from "expo-status-bar";
+import Colors from "./utils/Colos";
 
 export default function App() {
   const [screen, setScreen] = useState(0);
@@ -18,7 +19,10 @@ export default function App() {
     );
 
   return (
-    <LinearGradient style={styles.background} colors={["#6A9C89", "#16423C"]}>
+    <LinearGradient
+      style={styles.background}
+      colors={[Colors.dark, Colors.deepDark]}
+    >
       {/* <ImageBackground style={[styles.background, {opacity:0.6}]}
          source={require('../Flipping-Game/assets/360_F_853527452_9jdfXrvgmeLEyyaSnxoh1t6tUB8HYJjO.jpg')}
          resizeMethod="cover"
