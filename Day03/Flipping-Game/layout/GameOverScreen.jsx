@@ -3,9 +3,11 @@ import React from "react";
 import PrimaryBtn from "../components/PrimaryBtn";
 import Colors from "../utils/Colos";
 
-export default function GameOverScreen({ setScreen, getNumber }) {
+export default function GameOverScreen({ setScreen, getNumber, countGuess,setGetNumber,setCountGuess }) {
   const GoBackHandler = () => {
     setScreen(0);
+    setGetNumber(null)
+    setCountGuess(0)
   };
 
   return (
@@ -17,11 +19,11 @@ export default function GameOverScreen({ setScreen, getNumber }) {
             Game Over: {getNumber}
           </Text>
         </View>
-        {/* <View>
+        <View>
           <Text style={[styles.choosenText, styles.commonTextStyle]}>
-            Your guess is {getNumber}
+            You have attempt {countGuess} times
           </Text>
-        </View> */}
+        </View>
       </View>
     </View>
   );
@@ -48,8 +50,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: 600,
   },
-//   choosenText: {
-//     fontSize: 25,
-//     color: "white",
-//   },
+    choosenText: {
+      fontSize: 20,
+      color: "white",
+    },
 });

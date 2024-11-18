@@ -10,6 +10,7 @@ import GameOverScreen from "./layout/GameOverScreen";
 export default function App() {
   const [screen, setScreen] = useState(0);
   const [getNumber, setGetNumber] = useState(null);
+  const [countGuess, setCountGuess] = useState(0);
 
   let newScreen =
     screen === 0 ? (
@@ -19,9 +20,20 @@ export default function App() {
         getNumber={getNumber}
       />
     ) : screen === 1 ? (
-      <GameScreen setScreen={setScreen} getNumber={getNumber} />
+      <GameScreen
+        setScreen={setScreen}
+        getNumber={getNumber}
+        setCountGuess={setCountGuess}
+        setGetNumber={setGetNumber}
+      />
     ) : screen === 2 ? (
-      <GameOverScreen setScreen={setScreen} getNumber={getNumber} />
+      <GameOverScreen
+        setScreen={setScreen}
+        getNumber={getNumber}
+        countGuess={countGuess}
+        setGetNumber={setGetNumber}
+        setCountGuess={setCountGuess}
+      />
     ) : null; // Optional: Fallback if no condition matches
 
   console.log("screenn===>", screen);

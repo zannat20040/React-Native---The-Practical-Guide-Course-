@@ -8,13 +8,20 @@ const getRandomNumber = (max, min) => {
   return Math.floor(Math.random() * (max - min + 1)) + min; // Inclusive of max and min
 };
 
-export default function GameScreen({ setScreen, getNumber }) {
+export default function GameScreen({
+  setScreen,
+  getNumber,
+  setGetNumber,
+  setCountGuess,
+}) {
   const [minNumber, setMinNumber] = useState(0);
   const [maxNumber, setMaxNumber] = useState(50);
   const [guessNumber, setGuessNumber] = useState(getRandomNumber(50, 0));
 
   const GoBackHandler = () => {
     setScreen(0);
+    setGetNumber(null);
+    setCountGuess(0);
   };
 
   useEffect(() => {
@@ -28,11 +35,13 @@ export default function GameScreen({ setScreen, getNumber }) {
     let newMax = maxNumber;
 
     if (direction === "higher" && guessNumber < getNumber) {
-      newMin = guessNumber + 1; // Ensure the next guess is strictly higher
+      newMin = guessNumber + 1;
       setMinNumber(newMin);
+      setCountGuess((prevCount) => prevCount + 1);
     } else if (direction === "lower" && guessNumber > getNumber) {
-      newMax = guessNumber - 1; // Ensure the next guess is strictly lower
+      newMax = guessNumber - 1;
       setMaxNumber(newMax);
+      setCountGuess((prevCount) => prevCount + 1);
     } else {
       Alert.alert("Don't lie!", "Please give the correct hint.");
       return;
