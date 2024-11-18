@@ -22,17 +22,17 @@ export default function AttemptScreen({ hintList }) {
 }
 
 const styles = StyleSheet.create({
-  mainContainer:{
-    marginTop:30
+  mainContainer: {
+    marginTop: 30,
   },
   textStyle: {
-    fontSize:18,
+    fontSize: 18,
     color: "white",
   },
   textContainer: {
     backgroundColor: Colors.dark,
     padding: 12,
     borderRadius: 10,
-    marginTop:5
+    marginTop: 5,
   },
 });
