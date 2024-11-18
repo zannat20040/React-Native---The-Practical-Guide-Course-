@@ -1,26 +1,42 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import PrimaryBtn from "../components/PrimaryBtn";
 import Colors from "../utils/Colos";
-import Icon from "react-native-vector-icons/FontAwesome";
+
+
+// Adjusted getRandomNumber function
+const getRandomNumber = (max, min) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min; // Inclusive of max and min
+};
 
 export default function GameScreen({ setScreen }) {
+  const [minNumber, setMinNumber] = useState(0);
+  const [maxNumber, setMaxNumber] = useState(50);
+  const [guessNumber, setGuessNumber] = useState(getRandomNumber(50, 0));
+
   const GoBackHandler = () => {
     setScreen(0);
   };
 
-  const getRandomNumber = (max, min) => {
-    const randomNumber = Math.floor(Math.random() * (max - min));
-    console.log("random==>", randomNumber);
-    return randomNumber;
-  };
+  const hintHandler = (direction) => {
+    let newMin = minNumber;
+    let newMax = maxNumber;
 
-  // getRandomNumber(50,0);
-  const guessNumber = getRandomNumber(50, 0);
+    if (direction === "higher") {
+      newMin = guessNumber + 1; // Ensure the next guess is strictly higher
+      setMinNumber(newMin);
+    } else if (direction === "lower") {
+      newMax = guessNumber - 1; // Ensure the next guess is strictly lower
+      setMaxNumber(newMax);
+    }
+
+    // Update the guess after adjusting the range
+    const newGuess = getRandomNumber(newMax, newMin);
+    setGuessNumber(newGuess);
+  };
 
   return (
     <View>
-      {/* <Text>GameScreen</Text> */}
       <PrimaryBtn label={"Go Back"} eventHandler={GoBackHandler} />
       <View style={styles.container}>
         <View>
@@ -32,12 +48,18 @@ export default function GameScreen({ setScreen }) {
           </Text>
         </View>
         <View style={styles.buttonContainer}>
-          <View style={styles.button}>
+          <Pressable
+            style={styles.button}
+            onPress={hintHandler.bind(this, "lower")}
+          >
             <Text style={styles.buttonText}>-</Text>
-          </View>
-          <View style={styles.button}>
+          </Pressable>
+          <Pressable
+            style={styles.button}
+            onPress={hintHandler.bind(this, "higher")}
+          >
             <Text style={styles.buttonText}>+</Text>
-          </View>
+          </Pressable>
         </View>
       </View>
     </View>
@@ -47,11 +69,9 @@ export default function GameScreen({ setScreen }) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.deepDark,
-    justifyContent: "start",
+    justifyContent: "center",
     paddingHorizontal: 15,
     paddingVertical: 20,
-    borderRadius: 10,
-    paddingHorizontal: 15,
     borderRadius: 10,
     marginTop: 10,
   },
