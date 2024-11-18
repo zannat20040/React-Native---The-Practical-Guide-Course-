@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import PrimaryBtn from "../components/PrimaryBtn";
 import Colors from "../utils/Colos";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -12,10 +12,11 @@ export default function GameScreen({ setScreen }) {
   const getRandomNumber = (max, min) => {
     const randomNumber = Math.floor(Math.random() * (max - min));
     console.log("random==>", randomNumber);
+    return randomNumber;
   };
 
   // getRandomNumber(50,0);
-  getRandomNumber(50, 0);
+  const guessNumber = getRandomNumber(50, 0);
 
   return (
     <View>
@@ -26,25 +27,16 @@ export default function GameScreen({ setScreen }) {
           <Text style={[styles.opponentText, styles.commonTextStyle]}>
             Opponent Guess
           </Text>
-          <Text style={[styles.guessNumber, styles.commonTextStyle]}>34</Text>
+          <Text style={[styles.guessNumber, styles.commonTextStyle]}>
+            {guessNumber}
+          </Text>
         </View>
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>-</Text>
-            {/* <Icon.Button
-              name="minus"
-              color={Colors.deepDark}
-              backgroundColor={Colors.normal}
-            ></Icon.Button> */}
           </View>
           <View style={styles.button}>
             <Text style={styles.buttonText}>+</Text>
-            {/* <Icon.Button
-              name="plus"
-              style={styles.buttonText}
-              color={Colors.deepDark}
-              backgroundColor={Colors.normal}
-            ></Icon.Button> */}
           </View>
         </View>
       </View>
@@ -75,20 +67,21 @@ const styles = StyleSheet.create({
     fontSize: 40,
     color: Colors.normal,
   },
-  button: {
-    backgroundColor: Colors.normal,
-    padding: 10,
-    width: 60,
-    height: 60,
-  },
-  buttonText: {
-    fontSize: 30,
-    color: Colors.deepDark,
-    textAlign:'center',
-  },
   buttonContainer: {
     flexDirection: "row",
     gap: 10,
     justifyContent: "center",
+    alignContent: "center",
+  },
+  button: {
+    backgroundColor: Colors.normal,
+    padding: 10,
+    width: 60,
+    borderRadius: 150,
+  },
+  buttonText: {
+    fontSize: 30,
+    color: Colors.deepDark,
+    textAlign: "center",
   },
 });
