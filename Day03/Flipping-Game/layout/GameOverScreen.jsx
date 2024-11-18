@@ -3,11 +3,17 @@ import React from "react";
 import PrimaryBtn from "../components/PrimaryBtn";
 import Colors from "../utils/Colos";
 
-export default function GameOverScreen({ setScreen, getNumber, countGuess,setGetNumber,setCountGuess }) {
+export default function GameOverScreen({
+  setScreen,
+  getNumber,
+  countGuess,
+  setGetNumber,
+  setCountGuess,
+}) {
   const GoBackHandler = () => {
     setScreen(0);
-    setGetNumber(null)
-    setCountGuess(0)
+    setGetNumber(null);
+    setCountGuess(0);
   };
 
   return (
@@ -50,8 +56,8 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: 600,
   },
-    choosenText: {
-      fontSize: 20,
-      color: "white",
-    },
+  choosenText: {
+    fontSize: 20,
+    color: "white",
+  },
 });

@@ -2,6 +2,7 @@ import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import PrimaryBtn from "../components/PrimaryBtn";
 import Colors from "../utils/Colos";
+import AttemptScreen from "./AttemptScreen";
 
 // Adjusted getRandomNumber function
 const getRandomNumber = (max, min) => {
@@ -17,6 +18,7 @@ export default function GameScreen({
   const [minNumber, setMinNumber] = useState(0);
   const [maxNumber, setMaxNumber] = useState(50);
   const [guessNumber, setGuessNumber] = useState(getRandomNumber(50, 0));
+  const [hintList, setHintList] = useState([]);
 
   const GoBackHandler = () => {
     setScreen(0);
@@ -38,10 +40,12 @@ export default function GameScreen({
       newMin = guessNumber + 1;
       setMinNumber(newMin);
       setCountGuess((prevCount) => prevCount + 1);
+      setHintList((prev) => [...prev, guessNumber]);
     } else if (direction === "lower" && guessNumber > getNumber) {
       newMax = guessNumber - 1;
       setMaxNumber(newMax);
       setCountGuess((prevCount) => prevCount + 1);
+      setHintList((prev) => [...prev, guessNumber]);
     } else {
       Alert.alert("Don't lie!", "Please give the correct hint.");
       return;
@@ -84,6 +88,7 @@ export default function GameScreen({
           </Pressable>
         </View>
       </View>
+      <AttemptScreen hintList={hintList} />
     </View>
   );
 }
