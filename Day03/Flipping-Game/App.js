@@ -8,12 +8,17 @@ import Colors from "./utils/Colos";
 
 export default function App() {
   const [screen, setScreen] = useState(0);
+  const [getNumber, setGetNumber] = useState(null);
 
   let newScreen =
     screen === 0 ? (
-      <StartScreen setScreen={setScreen} />
+      <StartScreen
+        setScreen={setScreen}
+        setGetNumber={setGetNumber}
+        getNumber={getNumber}
+      />
     ) : screen === 1 ? (
-      <GameScreen setScreen={setScreen} />
+      <GameScreen setScreen={setScreen} getNumber={getNumber} />
     ) : (
       0
     );

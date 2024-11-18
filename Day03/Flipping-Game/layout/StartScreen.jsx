@@ -2,12 +2,9 @@ import { Alert, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import InputField from "../components/InputField";
 import PrimaryBtn from "../components/PrimaryBtn";
-import { StatusBar } from "expo-status-bar";
 import Colors from "../utils/Colos";
 
-export default function StartScreen({ setScreen }) {
-  const [getNumber, setGetNumber] = useState(null);
-
+export default function StartScreen({ setScreen, getNumber, setGetNumber }) {
   const handleReset = () => {
     setGetNumber(null);
   };

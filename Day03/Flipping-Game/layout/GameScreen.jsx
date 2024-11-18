@@ -1,15 +1,14 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import PrimaryBtn from "../components/PrimaryBtn";
 import Colors from "../utils/Colos";
-
 
 // Adjusted getRandomNumber function
 const getRandomNumber = (max, min) => {
   return Math.floor(Math.random() * (max - min + 1)) + min; // Inclusive of max and min
 };
 
-export default function GameScreen({ setScreen }) {
+export default function GameScreen({ setScreen, getNumber }) {
   const [minNumber, setMinNumber] = useState(0);
   const [maxNumber, setMaxNumber] = useState(50);
   const [guessNumber, setGuessNumber] = useState(getRandomNumber(50, 0));
@@ -22,12 +21,15 @@ export default function GameScreen({ setScreen }) {
     let newMin = minNumber;
     let newMax = maxNumber;
 
-    if (direction === "higher") {
+    if (direction === "higher" && guessNumber < getNumber) {
       newMin = guessNumber + 1; // Ensure the next guess is strictly higher
       setMinNumber(newMin);
-    } else if (direction === "lower") {
+    } else if (direction === "lower" && guessNumber > getNumber) {
       newMax = guessNumber - 1; // Ensure the next guess is strictly lower
       setMaxNumber(newMax);
+    } else {
+      Alert.alert("Don't lie!", "Please give the correct hint.");
+      return;
     }
 
     // Update the guess after adjusting the range
@@ -39,6 +41,7 @@ export default function GameScreen({ setScreen }) {
     <View>
       <PrimaryBtn label={"Go Back"} eventHandler={GoBackHandler} />
       <View style={styles.container}>
+        {/* text */}
         <View>
           <Text style={[styles.opponentText, styles.commonTextStyle]}>
             Opponent Guess
@@ -46,7 +49,11 @@ export default function GameScreen({ setScreen }) {
           <Text style={[styles.guessNumber, styles.commonTextStyle]}>
             {guessNumber}
           </Text>
+          <Text style={[styles.choosenText, styles.commonTextStyle]}>
+            Your choosen number is Higher or Lower?
+          </Text>
         </View>
+        {/* button */}
         <View style={styles.buttonContainer}>
           <Pressable
             style={styles.button}
@@ -81,6 +88,10 @@ const styles = StyleSheet.create({
   },
   opponentText: {
     fontSize: 25,
+    color: "white",
+  },
+  choosenText: {
+    fontSize: 18,
     color: "white",
   },
   guessNumber: {
