@@ -19,6 +19,15 @@
       width: 0,
       height: 12,
     }, ==> mention shadow spreading height & width
-3. Using Linear Gradient
-4. Using ImageBackground 
-5. Using different type of property of TextInput
+3. Use <LinearGradient> for getting gradient view
+4. Using <ImageBackground> for giving a background image 
+5. Using different type of property of <TextInput>.Such as,
+      i.multiline
+      ii. numbersOfLine
+      iii.keyboardType
+      iv. onChangeText
+      iv. autoCapitalize
+      v. maxLength
+      vi. autoCorrection
+6. use Alert.alert() for genarating alert
+7. 

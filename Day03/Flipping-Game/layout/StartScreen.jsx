@@ -4,43 +4,51 @@ import InputField from "../components/InputField";
 import PrimaryBtn from "../components/PrimaryBtn";
 import { StatusBar } from "expo-status-bar";
 
-export default function StartScreen({setScreen}) {
+export default function StartScreen({ setScreen }) {
   const [getNumber, setGetNumber] = useState(null);
 
   const handleReset = () => {
     console.log("handleReset");
-    setGetNumber(null)
+    setGetNumber(null);
   };
 
   const handleConfirm = () => {
-    const choosenNumber = parseInt(getNumber)
+    const choosenNumber = parseInt(getNumber);
     // console.log("handleConfirm");
 
-    if(isNaN(choosenNumber)){
+    if (isNaN(choosenNumber)) {
       Alert.alert(
-        'OHH NOO',
-        'Please choose a valid number',
-        [
-          {text:'cancel'},
-        ]
-      )
-    }
-    if(choosenNumber<0 || choosenNumber >50){
+        "OHH NOO",
+        "Please choose a valid number",
+        [{ text: "cancel" }]
+        // {
+        //   cancelable: true,
+        //   onDismiss: () =>
+        //     Alert.alert(
+        //       'You removed the alert',
+        //     ),
+        // }
+      );
+    } else if (choosenNumber < 0 || choosenNumber > 50) {
       Alert.alert(
-        'OHH NOO',
-        'Please choose a number between 0 to 50',
-        [
-          {text:'cancel'},
-        ]
-      )
+        "OHH NOO",
+        "Please choose a number between 0 to 50",
+        [{ text: "cancel" }]
+        // {
+        //   cancelable: true,
+        //   onDismiss: () =>
+        //     Alert.alert(
+        //       'You removed the alert',
+        //     ),
+        // }
+      );
+    } else {
+      console.log(`You have given a valid number ${choosenNumber}`);
+      setScreen(1);
     }
-
-    console.log(`You have given a valid number ${choosenNumber}`)
-    setScreen(1)
     // console.log(isNaN(chosenNumber))
     // console.log(isNaN(getNumber))
     // console.log(typeof(getNumber))
-
   };
   return (
     <View>
@@ -55,7 +63,6 @@ export default function StartScreen({setScreen}) {
           <PrimaryBtn label={"Reset"} eventHandler={handleReset} />
         </View>
       </View>
-      <StatusBar style="auto" />
     </View>
   );
 }
@@ -64,8 +71,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#16423C",
     justifyContent: "start",
-    margin: 10,
-    marginTop: 60,
     paddingVertical: 15,
     paddingTop: 40,
     borderRadius: 10,

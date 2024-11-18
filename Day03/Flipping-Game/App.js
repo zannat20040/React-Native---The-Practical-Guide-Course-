@@ -1,8 +1,9 @@
-import { ImageBackground, StyleSheet } from "react-native";
+import { ImageBackground, SafeAreaView, StyleSheet } from "react-native";
 import StartScreen from "./layout/StartScreen";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
 import GameScreen from "./layout/GameScreen";
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
   const [screen, setScreen] = useState(0);
@@ -11,7 +12,7 @@ export default function App() {
     screen === 0 ? (
       <StartScreen setScreen={setScreen} />
     ) : screen === 1 ? (
-      <GameScreen />
+      <GameScreen setScreen={setScreen} />
     ) : (
       0
     );
@@ -24,7 +25,8 @@ export default function App() {
          
       >
       </ImageBackground> */}
-      {newScreen}
+      <SafeAreaView>{newScreen}</SafeAreaView>
+      <StatusBar style="auto" />
     </LinearGradient>
   );
 }
@@ -32,5 +34,7 @@ export default function App() {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    padding: 10,
+    paddingTop: 60,
   },
 });
