@@ -1,9 +1,0 @@
-1. ImageBackground
-2. Linear Gradient
-3. TextInput
-4. Shadow
-5. Expo-vector-icon
-6. Alert
-7.Expo-font
-8. Expo-loading
-9.
