@@ -5,3 +5,9 @@
 Dimensions.get("window").height;
 
 4. Use useWindowDimensions() hooks for geeting the  device screen info dynamically
+5. We can design base on different OS Platform . There are 3 ways to it.
+       i. Platform.OS==='android'? androidStyle : iosStyle
+       ii. Platform.select({ios:style, android:style})
+       iii. Name the file name like this: Example.android.jsx, Example.ios.jsx
+       React Native will automatic access the file according to the extension
+
