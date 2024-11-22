@@ -64,11 +64,11 @@ export default function GameScreen({
     setGuessNumber(newGuess);
   };
 
-  const { width } = useWindowDimensions();
-  // const isScrollNeed = width
+  const { width, height } = useWindowDimensions();
 
-  return (
-    <View style={{height:'100%', backgroundColor:Colors.light,}}>
+  const isLandscape = width > height;
+  const content = (
+    <>
       <PrimaryBtn label={"Go Back"} eventHandler={GoBackHandler} />
       <View style={styles.container}>
         {/* text */}
@@ -100,7 +100,17 @@ export default function GameScreen({
         </View>
       </View>
       <AttemptScreen hintList={hintList} />
-    </View>
+    </>
+  );
+
+  return (
+    <>
+      {isLandscape ? (
+        <ScrollView style={{ height: "100%" }}>{content}</ScrollView>
+      ) : (
+        <View style={{ height: "100%" }}>{content}</View>
+      )}
+    </>
   );
 }
 
@@ -113,7 +123,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 10,
     // flex: 2,
-    flex:1
+    flex: 1,
   },
   commonTextStyle: {
     textAlign: "center",
