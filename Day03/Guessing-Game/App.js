@@ -72,5 +72,7 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-regular",
     padding: 10,
     paddingTop: 60,
+    // alignContent:'center',
+    // justifyContent:'center'
   },
 });

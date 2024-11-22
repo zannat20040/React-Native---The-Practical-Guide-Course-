@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, Text, View } from "react-native";
+import { Alert, StyleSheet, Text, View, Dimensions } from "react-native";
 import React, { useState } from "react";
 import InputField from "../components/InputField";
 import PrimaryBtn from "../components/PrimaryBtn";
@@ -66,14 +66,19 @@ export default function StartScreen({ setScreen, getNumber, setGetNumber }) {
   );
 }
 
+const deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get("screen").height;
+console.log(deviceHeight);
+
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.deepDark,
     justifyContent: "start",
-    paddingVertical: 15,
+    paddingVertical: deviceWidth <= 360 ? 15 : 40,
     paddingTop: 40,
     borderRadius: 10,
-    paddingHorizontal: 15,
+    paddingHorizontal: deviceWidth <= 360 ? 25 : 40,
     borderRadius: 10,
   },
   buttonContainer: {
