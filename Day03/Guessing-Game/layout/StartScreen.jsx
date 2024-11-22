@@ -1,4 +1,13 @@
-import { Alert, StyleSheet, Text, View, Dimensions } from "react-native";
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  useWindowDimensions,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import React, { useState } from "react";
 import InputField from "../components/InputField";
 import PrimaryBtn from "../components/PrimaryBtn";
@@ -46,39 +55,50 @@ export default function StartScreen({ setScreen, getNumber, setGetNumber }) {
     // console.log(isNaN(getNumber))
     // console.log(typeof(getNumber))
   };
+
+  const { width, height } = useWindowDimensions();
+  const marginBottom = width <= 360 ? 20 : 6;
+
   return (
-    <View>
-      <View style={styles.container}>
-        <Text style={[styles.opponentText, styles.commonTextStyle]}>
-          Enter a Number
-        </Text>
-        <InputField setGetNumber={setGetNumber} getNumber={getNumber} />
-        <View style={styles.buttonContainer}>
-          <PrimaryBtn
-            label={"Confirm"}
-            eventHandler={handleConfirm}
-            getNumber={getNumber}
-          />
-          <PrimaryBtn label={"Reset"} eventHandler={handleReset} />
+    <KeyboardAvoidingView   behavior={Platform.OS === 'android' ? 'padding' : 'height'}>
+      <View style={{ width: 400, maxWidth: "90%", margin: "auto" }}>
+        <View style={styles.container}>
+          <Text
+            style={[
+              styles.opponentText,
+              styles.commonTextStyle,
+              { marginBottom: marginBottom },
+            ]}
+          >
+            Enter a Number
+          </Text>
+          <InputField setGetNumber={setGetNumber} getNumber={getNumber} />
+          <View style={styles.buttonContainer}>
+            <PrimaryBtn
+              label={"Confirm"}
+              eventHandler={handleConfirm}
+              getNumber={getNumber}
+            />
+            <PrimaryBtn label={"Reset"} eventHandler={handleReset} />
+          </View>
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
 const deviceWidth = Dimensions.get("window").width;
-const deviceHeight = Dimensions.get("screen").height;
-console.log(deviceHeight);
-
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.deepDark,
-    justifyContent: "start",
-    paddingVertical: deviceWidth <= 360 ? 15 : 40,
+    justifyContent: "center",
+    // paddingVertical: deviceWidth <= 360 ? 15 : 40,
+    paddingVertical: 15,
     paddingTop: 40,
     borderRadius: 10,
-    paddingHorizontal: deviceWidth <= 360 ? 25 : 40,
+    // paddingHorizontal: deviceWidth <= 360 ? 25 : 40,
+    paddingHorizontal: 15,
     borderRadius: 10,
   },
   buttonContainer: {
@@ -86,7 +106,7 @@ const styles = StyleSheet.create({
   },
   commonTextStyle: {
     textAlign: "center",
-    marginBottom: 20,
+    // marginBottom: 20,
   },
   opponentText: {
     fontSize: 25,

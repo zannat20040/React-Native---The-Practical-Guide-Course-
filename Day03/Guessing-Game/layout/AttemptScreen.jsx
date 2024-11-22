@@ -3,7 +3,7 @@ import React from "react";
 import Colors from "../utils/Colos";
 
 export default function AttemptScreen({ hintList }) {
-  console.log(hintList);
+  // console.log(hintList);
   return (
     <View style={styles.mainContainer}>
       <FlatList
@@ -15,6 +15,7 @@ export default function AttemptScreen({ hintList }) {
             </Text>
           </View>
         )}
+        nestedScrollEnabled={true}
         keyExtractor={(item, index) => index.toString()} // Use index as a fallback for keyExtractor
       />
     </View>
@@ -24,6 +25,8 @@ export default function AttemptScreen({ hintList }) {
 const styles = StyleSheet.create({
   mainContainer: {
     marginTop: 30,
+    // backgroundColor: Colors.light,
+    flex:40,
   },
   textStyle: {
     fontSize: 18,

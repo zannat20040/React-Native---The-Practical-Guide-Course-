@@ -1,4 +1,11 @@
-import { ImageBackground, SafeAreaView, StyleSheet } from "react-native";
+import {
+  ImageBackground,
+  SafeAreaView,
+  StyleSheet,
+  Dimensions,
+  View,
+  useWindowDimensions,
+} from "react-native";
 import StartScreen from "./layout/StartScreen";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
@@ -13,6 +20,11 @@ export default function App() {
   const [screen, setScreen] = useState(0);
   const [getNumber, setGetNumber] = useState(null);
   const [countGuess, setCountGuess] = useState(0);
+  const {width, height} = useWindowDimensions()
+
+  // ==========start responsive styles===========
+  const paddingTop = width <= 360 ? 40 : 35
+  // ==========end responsive styles==========
 
   const [fontsLoaded] = useFonts({
     "roboto-black": require("./assets/Fonts/Roboto-Black.ttf"),
@@ -22,8 +34,6 @@ export default function App() {
     "roboto-regular": require("./assets/Fonts/Roboto-Regular.ttf"),
     "roboto-thin": require("./assets/Fonts/Roboto-Thin.ttf"),
   });
-
- 
 
   let newScreen =
     screen === 0 ? (
@@ -51,7 +61,7 @@ export default function App() {
 
   return (
     <LinearGradient
-      style={styles.background}
+      style={[styles.background,{ paddingTop:paddingTop}]}
       colors={[Colors.dark, Colors.deepDark]}
     >
       {/* <ImageBackground style={[styles.background, {opacity:0.6}]}
@@ -60,6 +70,7 @@ export default function App() {
          
       >
       </ImageBackground> */}
+
       <SafeAreaView>{newScreen}</SafeAreaView>
       <StatusBar style="auto" />
     </LinearGradient>
@@ -71,8 +82,5 @@ const styles = StyleSheet.create({
     flex: 1,
     fontFamily: "roboto-regular",
     padding: 10,
-    paddingTop: 60,
-    // alignContent:'center',
-    // justifyContent:'center'
   },
 });

@@ -1,4 +1,12 @@
-import { Alert, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  useWindowDimensions,
+  View,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import PrimaryBtn from "../components/PrimaryBtn";
 import Colors from "../utils/Colos";
@@ -56,8 +64,11 @@ export default function GameScreen({
     setGuessNumber(newGuess);
   };
 
+  const { width } = useWindowDimensions();
+  // const isScrollNeed = width
+
   return (
-    <View>
+    <View style={{height:'100%', backgroundColor:Colors.light,}}>
       <PrimaryBtn label={"Go Back"} eventHandler={GoBackHandler} />
       <View style={styles.container}>
         {/* text */}
@@ -101,6 +112,8 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     borderRadius: 10,
     marginTop: 10,
+    // flex: 2,
+    flex:1
   },
   commonTextStyle: {
     textAlign: "center",

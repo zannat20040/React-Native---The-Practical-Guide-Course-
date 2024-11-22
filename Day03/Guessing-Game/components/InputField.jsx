@@ -1,12 +1,14 @@
-import { StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, TextInput, useWindowDimensions, View } from "react-native";
 import Colors from "../utils/Colos";
 
 export default function InputField({ setGetNumber, getNumber }) {
+  const {width, height} = useWindowDimensions()
+  const fontSize = width <= 360 ? 50 : 30
   return (
     <View style={{ alignItems: "center" }}>
       <View style={styles.inputContainer}>
         <TextInput
-          style={styles.textField}
+          style={[styles.textField, {fontSize:fontSize}]}
           // editable
           // maxLength={40}
           maxLength={2}
@@ -30,7 +32,7 @@ const styles = StyleSheet.create({
   },
   textField: {
     color: Colors.light,
-    fontSize: 50,
+    // fontSize: 50,
     height: 80,
   },
 });
