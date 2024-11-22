@@ -1,0 +1,7 @@
+1. use maxWidth , minWidth to get a basic responsive layout
+2. Dont forget to use width before using maxWidth, minWidth
+3. Use Dimansion Api to get the device screen information
+
+Dimensions.get("window").height;
+
+4. Use useWindowDimensions() hooks for geeting the  device screen info dynamically
