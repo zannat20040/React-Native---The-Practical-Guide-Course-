@@ -24,24 +24,19 @@ Now, I am going to add my Day 01 learning. Moving forward, I will continue updat
 - `Delete` items from a list dynamically.
 ## Documentation 
 
-[Core component](https://reactnative.dev/docs/intro-react-native-components)
-
-[Fundamentals](https://reactnative.dev/docs/intro-react)
-
-[TextInput Handle](https://reactnative.dev/docs/handling-text-input)
-
-[ScrollView](https://reactnative.dev/docs/using-a-scrollview)
-
-[Use of Flatlist](https://reactnative.dev/docs/using-a-listview)
-
+[Core component](https://reactnative.dev/docs/intro-react-native-components) |
+[Fundamentals](https://reactnative.dev/docs/intro-react) |
+[TextInput Handle](https://reactnative.dev/docs/handling-text-input) |
+[ScrollView](https://reactnative.dev/docs/using-a-scrollview) |
+[Use of Flatlist](https://reactnative.dev/docs/using-a-listview) |
 [Styling](https://reactnative.dev/docs/style)
-
+) |
 [Flex Layout](https://reactnative.dev/docs/flexbox)
 
 
 
 
-## Day-01, 08 November
+## Day-02, 09 November
 
  - `Ripple Effect` used for touch feedback on Android and iOS
  - The `android_ripple` prop is used to customize ripple effects on Android.
@@ -57,6 +52,63 @@ Now, I am going to add my Day 01 learning. Moving forward, I will continue updat
 - Images can be added using `<Image source={}/>`.
 - Use `require('/path/')` to add images stored locally.
 - Use `uri('address')` to load images from a live URL.
+
 ## Documentation 
 
-[Image](https://reactnative.dev/docs/images)
+[Image](https://reactnative.dev/docs/images) | 
+[Modal](https://reactnative.dev/docs/modal)
+
+
+
+## Day-03, 18 November
+
+ - Create a custom button using the `Pressable` component:
+ - Customize shadows using these properties:
+ ```bash
+    shadowColor: '#000',
+    shadowOpacity: 0.58,
+    shadowRadius: 16.0,
+    shadowOffset: { width: 0, height: 12 },
+    elevation: 2, // Works for Android
+```    
+ - Add gradient backgrounds using expo-linear-gradient:
+ ```bash
+  <LinearGradient
+      colors={['#4c669f', '#3b5998', '#192f6a']}
+      style={styles.gradient}
+    >
+      <Text style={styles.text}>Gradient Background</Text>
+    </LinearGradient>
+```
+- Use `<ImageBackground>` to reate a component with a background image.
+- Using `<TextInput>` to Customize TextInput with various properties.
+- Displaying Alerts with `Alert.alert()`
+```bash
+   const [fontsLoaded] = useFonts({
+    'CustomFont': require('./assets/fonts/CustomFont.ttf'),
+  });
+```
+- Using `<AppLoading />` for Expo Loading to Handle app loading states.
+-   Create a gussing game
+
+
+## Feature of Guessing game
+
+- Prompt the player to enter a guess.
+- Validate the input to ensure it is a number and within the specified range.
+- Generate a random number within a defined range `(e.g., 1 to 50).`
+- If the guess is too low, inform the player using `lower` button 
+- If the guess is too high, inform the player using `higher` button
+- If the guess is correct, congratulate the player and reveal the number.
+- Keep a count of the number of attempts made by the player.
+- Display the history of previous guesses.
+- After a correct guess, allow the player to `Play again`
+## Documentation
+
+[Pressable Component](https://reactnative.dev/docs/pressable) | 
+[Shadow](https://reactnative.dev/docs/shadow-props) |
+[LinearGradient](https://docs.expo.dev/versions/latest/sdk/linear-gradient/) | 
+[ImageBackground](https://reactnative.dev/docs/imagebackground) |
+[TextInput](https://reactnative.dev/docs/textinput) | 
+[Alerts](https://reactnative.dev/docs/alert) | 
+[Custom Fonts](https://docs.expo.dev/develop/user-interface/fonts) | 

@@ -6,11 +6,24 @@ import GameScreen from "./layout/GameScreen";
 import { StatusBar } from "expo-status-bar";
 import Colors from "./utils/Colos";
 import GameOverScreen from "./layout/GameOverScreen";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 export default function App() {
   const [screen, setScreen] = useState(0);
   const [getNumber, setGetNumber] = useState(null);
   const [countGuess, setCountGuess] = useState(0);
+
+  const [fontsLoaded] = useFonts({
+    "roboto-black": require("./assets/Fonts/Roboto-Black.ttf"),
+    "roboto-bold": require("./assets/Fonts/Roboto-Bold.ttf"),
+    "roboto-light": require("./assets/Fonts/Roboto-Light.ttf"),
+    "roboto-medium": require("./assets/Fonts/Roboto-Medium.ttf"),
+    "roboto-regular": require("./assets/Fonts/Roboto-Regular.ttf"),
+    "roboto-thin": require("./assets/Fonts/Roboto-Thin.ttf"),
+  });
+
+ 
 
   let newScreen =
     screen === 0 ? (
@@ -36,7 +49,6 @@ export default function App() {
       />
     ) : null; // Optional: Fallback if no condition matches
 
-  console.log("screenn===>", screen);
   return (
     <LinearGradient
       style={styles.background}
@@ -57,6 +69,7 @@ export default function App() {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    fontFamily: "roboto-regular",
     padding: 10,
     paddingTop: 60,
   },
