@@ -1,7 +1,14 @@
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 export default function FoodGrid({ item }) {
+  const navigation = useNavigation();
+
+  const HandleDetails = (item) => {
+    navigation.navigate("RecipeDetails", { details: item });
+  };
+
   return (
     <View style={styles.container}>
       <Image
@@ -14,7 +21,7 @@ export default function FoodGrid({ item }) {
         <Text style={{ fontSize: 15, marginVertical: 10 }}>
           {item.description}
         </Text>
-        <Pressable >
+        <Pressable onPress={() => HandleDetails(item)}>
           <Text style={styles.button}>See the recipe</Text>
         </Pressable>
       </View>
@@ -34,12 +41,12 @@ const styles = StyleSheet.create({
   textContainer: {
     padding: 20,
   },
-  button:{
-    backgroundColor:'black',
-    padding:10,
-    color:'white',
-    borderRadius:10,
-    textAlign:'center',
-    fontWeight:600
-  }
+  button: {
+    backgroundColor: "black",
+    padding: 10,
+    color: "white",
+    borderRadius: 10,
+    textAlign: "center",
+    fontWeight: 600,
+  },
 });

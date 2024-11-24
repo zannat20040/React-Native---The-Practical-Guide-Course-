@@ -214,7 +214,7 @@ const recipe = [
       },
       {
         name: "Ratatouille",
-        image: "https://example.com/images/ratatouille.jpg",
+        image: "https://www.eatingwell.com/thmb/8vDqJxFNHyHT-y4DVTrDsntI_Lg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5419901-9385fcb9a0824d7ebfa0765c19bd37df.jpg",
         description:
           "A colorful vegetable medley cooked with herbs and olive oil.",
         ingredients: [
