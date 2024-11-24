@@ -5,7 +5,7 @@ const recipe = [
     foods: [
       {
         name: "Sushi",
-        image: "https://example.com/images/sushi.jpg",
+        image: "https://img.freepik.com/free-photo/painting-sushi-plate-with-picture-fish-it_188544-12221.jpg",
         description:
           "Traditional Japanese dish made with vinegared rice, raw fish, and vegetables.",
         ingredients: [
@@ -30,7 +30,7 @@ const recipe = [
       },
       {
         name: "Ramen",
-        image: "https://example.com/images/ramen.jpg",
+        image: "https://img.freepik.com/free-photo/freshly-cooked-ramen-noodles-with-pork-vegetables-generative-ai_188544-12759.jpg",
         description:
           "A flavorful Japanese noodle soup with meat, vegetables, and soy-flavored broth.",
         ingredients: [
@@ -58,7 +58,7 @@ const recipe = [
     foods: [
       {
         name: "Pizza Margherita",
-        image: "https://example.com/images/pizza.jpg",
+        image: "https://cdn.pixabay.com/photo/2023/05/28/14/13/ai-generated-8023787_1280.jpg",
         description:
           "Classic Italian pizza with a thin crust, fresh tomatoes, mozzarella, and basil.",
         ingredients: [
@@ -81,7 +81,7 @@ const recipe = [
       },
       {
         name: "Tiramisu",
-        image: "https://example.com/images/tiramisu.jpg",
+        image: "https://t4.ftcdn.net/jpg/00/39/01/57/360_F_39015733_RlkPhCskQTJuLc8idgn7mpBajaViWqtn.jpg",
         description:
           "A creamy dessert made with coffee-soaked ladyfingers and mascarpone cheese.",
         ingredients: [
@@ -111,7 +111,7 @@ const recipe = [
     foods: [
       {
         name: "Chicken Biryani",
-        image: "https://example.com/images/biryani.jpg",
+        image: "https://images.food52.com/McqpjxUiMekhfX6Rsq7wuuSoz0g=/2016x1344/filters:format(webp)/d815e816-4664-472e-990b-d880be41499f--chicken-biryani-recipe.jpg",
         description:
           "Aromatic rice dish cooked with chicken, spices, and saffron.",
         ingredients: [
@@ -134,7 +134,7 @@ const recipe = [
       },
       {
         name: "Paneer Butter Masala",
-        image: "https://example.com/images/paneer.jpg",
+        image: "https://www.potsandpans.in/cdn/shop/articles/20221111092337-paneer.jpg?v=1668158933",
         description: "Creamy tomato-based curry with paneer cubes.",
         ingredients: [
           "250g paneer, cubed",
@@ -162,7 +162,7 @@ const recipe = [
     foods: [
       {
         name: "Tacos",
-        image: "https://example.com/images/tacos.jpg",
+        image: "https://img.freepik.com/free-photo/fresh-beef-taco-wooden-table-with-sauce-generative-ai_188544-8042.jpg",
         description:
           "Soft tortillas filled with seasoned meat, vegetables, and salsa.",
         ingredients: [
@@ -191,7 +191,7 @@ const recipe = [
     foods: [
       {
         name: "Croissant",
-        image: "https://example.com/images/croissant.jpg",
+        image: "https://images5.alphacoders.com/707/thumb-1920-707525.jpg",
         description:
           "Flaky and buttery pastry, a classic French breakfast item.",
         ingredients: [
@@ -243,7 +243,7 @@ const recipe = [
     foods: [
       {
         name: "Sweet and Sour Pork",
-        image: "https://example.com/images/sweet_sour_pork.jpg",
+        image: "https://cdn.sanity.io/images/2r0kdewr/production/0bc6f529c1200c84a8465d9317c3029898a4d4fa-1500x844.jpg",
         description:
           "Crispy pork stir-fried with sweet and tangy sauce and vegetables.",
         ingredients: [
@@ -272,7 +272,7 @@ const recipe = [
     foods: [
       {
         name: "Pad Thai",
-        image: "https://example.com/images/pad_thai.jpg",
+        image: "https://img.freepik.com/premium-photo/pad-thai-noodles-hd-8k-wallpaper-stock-photographic-image_853645-42513.jpg",
         description:
           "Stir-fried rice noodles with shrimp, tofu, and tamarind sauce.",
         ingredients: [
@@ -303,7 +303,7 @@ const recipe = [
     foods: [
       {
         name: "Burger",
-        image: "https://example.com/images/burger.jpg",
+        image: "https://img.freepik.com/free-photo/grilled-gourmet-burger-with-cheese-tomato-onion-french-fries-generated-by-artificial-intelligence_25030-63181.jpg",
         description:
           "Juicy beef patty served in a bun with lettuce, tomato, and cheese.",
         ingredients: [
@@ -332,7 +332,7 @@ const recipe = [
     foods: [
       {
         name: "Baklava",
-        image: "https://example.com/images/baklava.jpg",
+        image: "https://img.freepik.com/premium-photo/baklava-with-pistachio-one-most-beautiful-desserts-turkish-cuisine-turkish-dessert-baklava_867452-25324.jpg",
         description:
           "A sweet pastry made of layers of phyllo dough, nuts, and honey syrup.",
         ingredients: [
@@ -361,7 +361,7 @@ const recipe = [
     foods: [
       {
         name: "Moussaka",
-        image: "https://example.com/images/moussaka.jpg",
+        image: "https://img.freepik.com/premium-photo/moussaka-with-cheesy-top-layer-yummy-delicious-moussaka-food-image-photography_1020697-608495.jpg",
         description:
           "A layered casserole with eggplant, ground meat, and creamy béchamel sauce.",
         ingredients: [
@@ -389,7 +389,7 @@ const recipe = [
       },
       {
         name: "Greek Salad",
-        image: "https://example.com/images/greek_salad.jpg",
+        image: "https://www.olivetomato.com/wp-content/uploads/2019/06/Best-Greek-Salad-Recipe-1.jpg",
         description:
           "A refreshing salad with tomatoes, cucumbers, olives, feta cheese, and olive oil.",
         ingredients: [
