@@ -2,7 +2,6 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 
 export default function CountryGrid({ item }) {
-  console.log(item.country);
   return (
     <Pressable style={styles.container} android_ripple={{ color: "FF000020" }}>
       <Text style={styles.text}>{item.country}</Text>
@@ -19,8 +18,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: "center",
     margin: 5,
-    backgroundColor: "#EFAA4B",
-
+    backgroundColor: "#A66E38",
   },
   text: {
     textAlign: "center",
