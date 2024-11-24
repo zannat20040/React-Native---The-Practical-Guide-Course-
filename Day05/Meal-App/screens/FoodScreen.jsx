@@ -6,15 +6,19 @@ import FoodGrid from "../components/FoodGrid";
 export default function FoodScreen({ route }) {
   const foods = route.params.data;
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={foods}
-        keyExtractor={(item)=>console.log(item.name)}
-        // key = {(item)=>console.log(item)}
+        keyExtractor={(item) => console.log(item.name)}
         renderItem={(item) => <FoodGrid item={item.item} />}
       />
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+  },
+});
