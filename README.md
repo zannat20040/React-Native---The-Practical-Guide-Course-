@@ -112,3 +112,50 @@ Now, I am going to add my Day 01 learning. Moving forward, I will continue updat
 [TextInput](https://reactnative.dev/docs/textinput) | 
 [Alerts](https://reactnative.dev/docs/alert) | 
 [Custom Fonts](https://docs.expo.dev/develop/user-interface/fonts) | 
+
+
+
+## Day-04, 22 November
+
+ - Use `maxWidth` and `minWidth` properties to create a responsive layout.
+ - Use the `Dimensions` API to access the device's screen information.
+ ```bash
+    const screenHeight = Dimensions.get("window").height;
+
+    // window : Size of the visible Application window.
+    // screen : Size of the device's screen.
+```    
+ - Use the useWindowDimensions hook to get device screen information dynamically.
+ ```bash
+  import { useWindowDimensions } from "react-native";
+const { width, height } = useWindowDimensions();
+```
+- React Native provides three ways to design specifically for Android or iOS
+```bash
+// Use conditional rendering
+
+const style = Platform.OS === "android" ? androidStyle : iosStyle;
+```
+
+```bash 
+// Use Platform.select
+
+const style = Platform.select({
+  ios: iosStyle,
+  android: androidStyle,
+});
+
+```
+
+```bash
+Create platform-specific files using extensions like .android.jsx or .ios.jsx.
+```
+Example:
+
+`Example.android.jsx`
+`Example.ios.jsx`
+## Documentation
+
+[Platform](https://reactnative.dev/docs/platform) | 
+[Hook](https://reactnative.dev/docs/usewindowdimensions) |
+[Dimension](https://reactnative.dev/docs/dimensions/) 
