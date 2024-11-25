@@ -1,9 +1,19 @@
-import { FlatList, Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useLayoutEffect } from "react";
+import recipe from "../data/dummydata";
 
-export default function RecipeDetails({ route }) {
-  console.log(route.params.details);
-  const details = route.params.details;
+export default function RecipeDetails({ route,navigation }) {
+  const name = route.params.name;
+  const allfoods = recipe.flatMap((item) => item.foods); 
+  const details = allfoods.filter((food) => food.name === name)[0];
+
+  // Update navigation title
+  useLayoutEffect(() => {
+    
+    navigation.setOptions({ title: name });
+  }, [navigation, name]);
+
+
   return (
     <View style={styles.container}>
       <Image source={{ uri: details.image }} height={200} />
@@ -15,18 +25,18 @@ export default function RecipeDetails({ route }) {
           <Text style={styles.commontext}>{details.servings}</Text>
         </View>
         <View>
-          {/* <FlatList
-            data={details.ingredients}
-            renderItem={(item) => <Text>{item.item}</Text>}
-          /> */}
-          {details.ingredients.map((item,index)=><Text key={index} style={styles.commontext}>{item}</Text>)}
+          {details?.ingredients?.map((item, index) => (
+            <Text key={index} style={styles.commontext}>
+              {item}
+            </Text>
+          ))}
         </View>
         <View>
-          {/* <FlatList
-            data={details.instructions}
-            renderItem={(item) => <Text>{item.item}</Text>}
-          /> */}
-           {details.instructions.map((item,index)=><Text key={index} style={styles.commontext}>{item}</Text>)}
+          {details?.instructions?.map((item, index) => (
+            <Text key={index} style={styles.commontext}>
+              {item}
+            </Text>
+          ))}
         </View>
       </ScrollView>
     </View>
@@ -35,12 +45,13 @@ export default function RecipeDetails({ route }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1
-  },container1: {
-    padding: 20,
-    backgroundColor:'#A66E38'
+    flex: 1,
   },
-  commontext:{
-    color:'white'
-  }
+  container1: {
+    padding: 20,
+    backgroundColor: "#A66E38",
+  },
+  commontext: {
+    color: "white",
+  },
 });
