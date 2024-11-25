@@ -1,11 +1,12 @@
 const recipe = [
   {
     country: "Japan",
-    color: "#FF6F61", // Soft coral for Japan
+    img: "https://media.istockphoto.com/id/1131743616/photo/aerial-view-of-tokyo-cityscape-with-fuji-mountain-in-japan.jpg?s=612x612&w=0&k=20&c=0QcSwnyzP__YpBewnQ6_-OZkn0XDtq-mXyvLSSakjZE=", // Soft coral for Japan
     foods: [
       {
         name: "Sushi",
-        image: "https://img.freepik.com/free-photo/painting-sushi-plate-with-picture-fish-it_188544-12221.jpg",
+        image:
+          "https://img.freepik.com/free-photo/painting-sushi-plate-with-picture-fish-it_188544-12221.jpg",
         description:
           "Traditional Japanese dish made with vinegared rice, raw fish, and vegetables.",
         ingredients: [
@@ -30,7 +31,8 @@ const recipe = [
       },
       {
         name: "Ramen",
-        image: "https://img.freepik.com/free-photo/freshly-cooked-ramen-noodles-with-pork-vegetables-generative-ai_188544-12759.jpg",
+        image:
+          "https://img.freepik.com/free-photo/freshly-cooked-ramen-noodles-with-pork-vegetables-generative-ai_188544-12759.jpg",
         description:
           "A flavorful Japanese noodle soup with meat, vegetables, and soy-flavored broth.",
         ingredients: [
@@ -54,11 +56,12 @@ const recipe = [
   },
   {
     country: "Italy",
-    color: "#D35400", // Deep orange for Italy
+    img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiw7oMnrt90ALPb3Lxkr5AEmrF4yZXRDK-NrWBY_sbgYBB_L1VO1vtivBg7iXAmRwZIsu1TZ0sUhv8XRjsZwAcME7d9g2-XWxM6I28N52JlMsHN1cjAsHwLfGkbhhobhLnRmyVj_cu506Y/s1600/cinque_terre-2560x1600.jpg", // Deep orange for Italy
     foods: [
       {
         name: "Pizza Margherita",
-        image: "https://cdn.pixabay.com/photo/2023/05/28/14/13/ai-generated-8023787_1280.jpg",
+        image:
+          "https://cdn.pixabay.com/photo/2023/05/28/14/13/ai-generated-8023787_1280.jpg",
         description:
           "Classic Italian pizza with a thin crust, fresh tomatoes, mozzarella, and basil.",
         ingredients: [
@@ -81,7 +84,8 @@ const recipe = [
       },
       {
         name: "Tiramisu",
-        image: "https://t4.ftcdn.net/jpg/00/39/01/57/360_F_39015733_RlkPhCskQTJuLc8idgn7mpBajaViWqtn.jpg",
+        image:
+          "https://t4.ftcdn.net/jpg/00/39/01/57/360_F_39015733_RlkPhCskQTJuLc8idgn7mpBajaViWqtn.jpg",
         description:
           "A creamy dessert made with coffee-soaked ladyfingers and mascarpone cheese.",
         ingredients: [
@@ -107,11 +111,12 @@ const recipe = [
   },
   {
     country: "India",
-    color: "#A569BD", // Soft purple for India
+    img: "https://media.istockphoto.com/id/1215791152/photo/moonrise-over-south-central-mumbai-the-financial-capital-of-india-showing-a-glittering.jpg?s=612x612&w=0&k=20&c=vJB6RQMWZ4D9pZ2Kva7QLLBbcAf8SGrRZ-ehCeR76zw=", // Soft purple for India
     foods: [
       {
         name: "Chicken Biryani",
-        image: "https://images.food52.com/McqpjxUiMekhfX6Rsq7wuuSoz0g=/2016x1344/filters:format(webp)/d815e816-4664-472e-990b-d880be41499f--chicken-biryani-recipe.jpg",
+        image:
+          "https://images.food52.com/McqpjxUiMekhfX6Rsq7wuuSoz0g=/2016x1344/filters:format(webp)/d815e816-4664-472e-990b-d880be41499f--chicken-biryani-recipe.jpg",
         description:
           "Aromatic rice dish cooked with chicken, spices, and saffron.",
         ingredients: [
@@ -134,7 +139,8 @@ const recipe = [
       },
       {
         name: "Paneer Butter Masala",
-        image: "https://www.potsandpans.in/cdn/shop/articles/20221111092337-paneer.jpg?v=1668158933",
+        image:
+          "https://www.potsandpans.in/cdn/shop/articles/20221111092337-paneer.jpg?v=1668158933",
         description: "Creamy tomato-based curry with paneer cubes.",
         ingredients: [
           "250g paneer, cubed",
@@ -158,11 +164,12 @@ const recipe = [
   },
   {
     country: "Mexico",
-    color: "#28B463", // Green for Mexico
+    img: "https://cdn.pixabay.com/photo/2022/10/08/18/02/mexico-city-7507531_1280.jpg", // Green for Mexico
     foods: [
       {
         name: "Tacos",
-        image: "https://img.freepik.com/free-photo/fresh-beef-taco-wooden-table-with-sauce-generative-ai_188544-8042.jpg",
+        image:
+          "https://img.freepik.com/free-photo/fresh-beef-taco-wooden-table-with-sauce-generative-ai_188544-8042.jpg",
         description:
           "Soft tortillas filled with seasoned meat, vegetables, and salsa.",
         ingredients: [
@@ -187,7 +194,7 @@ const recipe = [
   },
   {
     country: "France",
-    color: "#D4AC0D", // Golden yellow for France
+    img: "https://theplanetd.com/images/Annecy-Freance-Cities.jpg", // Golden yellow for France
     foods: [
       {
         name: "Croissant",
@@ -214,7 +221,8 @@ const recipe = [
       },
       {
         name: "Ratatouille",
-        image: "https://www.eatingwell.com/thmb/8vDqJxFNHyHT-y4DVTrDsntI_Lg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5419901-9385fcb9a0824d7ebfa0765c19bd37df.jpg",
+        image:
+          "https://www.eatingwell.com/thmb/8vDqJxFNHyHT-y4DVTrDsntI_Lg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/5419901-9385fcb9a0824d7ebfa0765c19bd37df.jpg",
         description:
           "A colorful vegetable medley cooked with herbs and olive oil.",
         ingredients: [
@@ -239,11 +247,12 @@ const recipe = [
   },
   {
     country: "China",
-    color: "#E74C3C", // Red for China
+    img: "https://img.freepik.com/free-photo/china-arch_1127-3673.jpg", // Red for China
     foods: [
       {
         name: "Sweet and Sour Pork",
-        image: "https://cdn.sanity.io/images/2r0kdewr/production/0bc6f529c1200c84a8465d9317c3029898a4d4fa-1500x844.jpg",
+        image:
+          "https://cdn.sanity.io/images/2r0kdewr/production/0bc6f529c1200c84a8465d9317c3029898a4d4fa-1500x844.jpg",
         description:
           "Crispy pork stir-fried with sweet and tangy sauce and vegetables.",
         ingredients: [
@@ -268,11 +277,12 @@ const recipe = [
   },
   {
     country: "Thailand",
-    color: "#F39C12", // Bright orange for Thailand
+    img: "https://media.istockphoto.com/id/474564386/photo/bangkok-cityscape.jpg?s=612x612&w=0&k=20&c=-cfbfmyX8RfC-v3YtVdQkQb67wJq9SiEBxfJy_A3_Uo=", // Bright orange for Thailand
     foods: [
       {
         name: "Pad Thai",
-        image: "https://img.freepik.com/premium-photo/pad-thai-noodles-hd-8k-wallpaper-stock-photographic-image_853645-42513.jpg",
+        image:
+          "https://img.freepik.com/premium-photo/pad-thai-noodles-hd-8k-wallpaper-stock-photographic-image_853645-42513.jpg",
         description:
           "Stir-fried rice noodles with shrimp, tofu, and tamarind sauce.",
         ingredients: [
@@ -299,11 +309,12 @@ const recipe = [
   },
   {
     country: "USA",
-    color: "#3498DB", // Blue for USA
+    img: "https://media.istockphoto.com/id/474564386/photo/bangkok-cityscape.jpg?s=612x612&w=0&k=20&c=-cfbfmyX8RfC-v3YtVdQkQb67wJq9SiEBxfJy_A3_Uo=", // Blue for USA
     foods: [
       {
         name: "Burger",
-        image: "https://img.freepik.com/free-photo/grilled-gourmet-burger-with-cheese-tomato-onion-french-fries-generated-by-artificial-intelligence_25030-63181.jpg",
+        image:
+          "https://img.freepik.com/free-photo/grilled-gourmet-burger-with-cheese-tomato-onion-french-fries-generated-by-artificial-intelligence_25030-63181.jpg",
         description:
           "Juicy beef patty served in a bun with lettuce, tomato, and cheese.",
         ingredients: [
@@ -328,11 +339,12 @@ const recipe = [
   },
   {
     country: "Turkey",
-    color: "#8E44AD", // Deep purple for Turkey
+    img: "https://media.istockphoto.com/id/507551802/photo/istanbul-the-capital-of-turkey.jpg?s=612x612&w=0&k=20&c=2DicSp1j3b8K1Xosz-L4XtCMQ02U0-JhyIGbcaM2te4=", // Deep purple for Turkey
     foods: [
       {
         name: "Baklava",
-        image: "https://img.freepik.com/premium-photo/baklava-with-pistachio-one-most-beautiful-desserts-turkish-cuisine-turkish-dessert-baklava_867452-25324.jpg",
+        image:
+          "https://img.freepik.com/premium-photo/baklava-with-pistachio-one-most-beautiful-desserts-turkish-cuisine-turkish-dessert-baklava_867452-25324.jpg",
         description:
           "A sweet pastry made of layers of phyllo dough, nuts, and honey syrup.",
         ingredients: [
@@ -357,11 +369,12 @@ const recipe = [
   },
   {
     country: "Greece",
-    color: "#2980B9", // Mediterranean blue for Greece
+    img: "https://worldwildschooling.com/wp-content/uploads/2024/02/Greek-Islands-That-Have-Airports_Santorini_Roman-Sigaev_AdobeStock_337041455-1024x576.jpg", // Mediterranean blue for Greece
     foods: [
       {
         name: "Moussaka",
-        image: "https://img.freepik.com/premium-photo/moussaka-with-cheesy-top-layer-yummy-delicious-moussaka-food-image-photography_1020697-608495.jpg",
+        image:
+          "https://img.freepik.com/premium-photo/moussaka-with-cheesy-top-layer-yummy-delicious-moussaka-food-image-photography_1020697-608495.jpg",
         description:
           "A layered casserole with eggplant, ground meat, and creamy béchamel sauce.",
         ingredients: [
@@ -389,7 +402,8 @@ const recipe = [
       },
       {
         name: "Greek Salad",
-        image: "https://www.olivetomato.com/wp-content/uploads/2019/06/Best-Greek-Salad-Recipe-1.jpg",
+        image:
+          "https://www.olivetomato.com/wp-content/uploads/2019/06/Best-Greek-Salad-Recipe-1.jpg",
         description:
           "A refreshing salad with tomatoes, cucumbers, olives, feta cheese, and olive oil.",
         ingredients: [

@@ -1,0 +1,8 @@
+1. Use React Navigation for managing navigation in React Native apps.
+2. Parameters can be passed between screens using navigation.navigate('ScreenName', {paramName: value}).
+3.Navigating with Hooks:
+    i. useNavigation Hook: when props aren't directly available.
+    ii. navigation Props: Automatically passed to screens declared in the navigation stack.
+4. Accessing Route Parameters:
+    i. useRoute Hook: Used to access route information and parameters in functional components.
+    ii. route Props: Automatically passed to screens to access route details.
