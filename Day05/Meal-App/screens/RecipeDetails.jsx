@@ -3,22 +3,22 @@ import React, { useEffect, useLayoutEffect } from "react";
 import recipe from "../data/dummydata";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
-
 export default function RecipeDetails({ route, navigation }) {
   const name = route.params.name;
   const allfoods = recipe.flatMap((item) => item.foods);
   const details = allfoods.filter((food) => food.name === name)[0];
 
-  const FavouriteHandler =()=>{
-    console.log('pressed')
-  }
+  const FavouriteHandler = () => {
+    console.log("pressed");
+  };
+
   // Update navigation title
   useLayoutEffect(() => {
     navigation.setOptions({
       title: name,
       headerRight: () => (
         <AntDesign
-        onPress={FavouriteHandler}
+          onPress={FavouriteHandler}
           name="staro"
           size={24}
           color="black"
@@ -39,7 +39,7 @@ export default function RecipeDetails({ route, navigation }) {
           <Text style={[styles.commontext, { marginVertical: 6 }]}>
             {details.description}
           </Text>
-          {/* time & serve  */}
+          {/* time & serve */}
           <View>
             {/* time */}
             <View style={styles.textContainer}>
@@ -48,7 +48,7 @@ export default function RecipeDetails({ route, navigation }) {
             </View>
             {/* serve */}
             <View style={styles.textContainer}>
-              <Text style={styles.commontext}>Serve for: </Text>{" "}
+              <Text style={styles.commontext}>Serve for: </Text>
               <Text style={styles.commontext}>{details.servings}</Text>
             </View>
           </View>
