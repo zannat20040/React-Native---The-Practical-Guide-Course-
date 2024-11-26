@@ -159,3 +159,157 @@ Example:
 [Platform](https://reactnative.dev/docs/platform) | 
 [Hook](https://reactnative.dev/docs/usewindowdimensions) |
 [Dimension](https://reactnative.dev/docs/dimensions/) 
+
+
+## Day-05, 24 November
+
+ - Install the necessary tools for developing and running React Native apps.
+
+ ```bash
+npm install @react-navigation/native react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated react-native-vector-icons
+npm install @react-navigation/stack
+
+```    
+ - Creating Stack Navigator
+ ```bash
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="CountryList">
+        <Stack.Screen name="CountryList" component={CountryList} />
+        <Stack.Screen name="FoodList" component={FoodList} />
+        <Stack.Screen name="Recipe" component={Recipe} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+```
+- Parameter Passing: Use `navigation.navigate` to send data while navigating:
+```bash 
+navigation.navigate('FoodList', { country: 'Italy' });
+```
+
+- Using Hooks:
+
+`useNavigation:` Used to access navigation when props are unavailable.
+
+`useRoute:` Used to fetch route parameters in functional components
+
+```bash
+const { country } = route.params;
+```
+## Documentation
+
+[React Navigation](https://reactnavigation.org/) 
+## Feature of Recipe app
+
+- Displays a list of countries.
+- On selecting a country, shows its famous dishes.
+- Clicking on a dish displays its detailed recipe, including ingredients and cooking instructions.
+
+
+## Day-06, 25 November
+
+ - Customizing Stack Header with setOptions
+
+```bash
+//dynamically change the header title
+
+navigation.setOptions({ title: `Foods of ${country}` });
+
+```
+ ```bash
+ //use the screenOptions to apply styles globally or use navigation.setOptions() to dynamically change the header during runtime.
+
+screenOptions={{
+  headerStyle: { backgroundColor: "#A66E38" },
+  headerTintColor: "white",
+}}
+```    
+```bash
+//add custom elements (like a button) to the header
+
+navigation.setOptions({
+  headerRight: () => <Text>hello</Text>,
+});
+
+```
+- Tab Navigation Setup
+```bash
+const Tab = createBottomTabNavigator();
+
+<NavigationContainer>
+  <Tab.Navigator>
+    <Tab.Screen name="Home" component={CountryScreen} />
+    <Tab.Screen name="Foods" component={FoodScreen} />
+    <Tab.Screen name="RecipeDetails" component={RecipeDetails} />
+  </Tab.Navigator>
+</NavigationContainer>
+
+```
+Don't forget to wrap it with `GestureHandlerRootView:`
+
+```bash
+<GestureHandlerRootView>
+  {/* Your navigation code here */}
+</GestureHandlerRootView>
+```
+- Customizing Tab Navigation
+
+```bash
+screenOptions={{
+  tabBarLabelStyle: { fontSize: 12, fontWeight: "bold" },
+  tabBarStyle: { backgroundColor: 'white', height: 60 },
+  tabBarBackground: () => <CustomBackgroundComponent />,
+  tabBarActiveTintColor: "tomato",
+  tabBarInactiveTintColor: "gray",
+}}
+
+```
+- Drawer Navigation Setup
+```bash
+const Drawer = createDrawerNavigator();
+
+<Drawer.Navigator>
+  <Drawer.Screen name="Home" component={CountryScreen} />
+  {/* <Drawer.Screen name="Foods" component={FoodScreen} /> */}
+  <Drawer.Screen name="RecipeDetails" component={RecipeDetails} />
+</Drawer.Navigator>
+
+```
+
+- Customizing Drawer Navigation
+```bash
+screenOptions={{
+  drawerLabel: "Custom Label",
+  drawerInactiveBackgroundColor: "white",
+  drawerActiveBackgroundColor: "rgba(255, 99, 71, 0.2)",
+  drawerInactiveTintColor: "gray",
+  drawerActiveTintColor: "tomato",
+  drawerLabelStyle: { fontSize: 16, fontWeight: "bold" },
+  drawerContentStyle: { paddingTop: 20 },
+  drawerStyle: {
+    backgroundColor: "#FFAD60",
+    width: 250,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+  },
+  headerShown: false,
+}}
+```
+
+## Documentation
+
+[Drawer Navigation](https://reactnavigation.org/docs/drawer-navigator) | [Stack Navigation](https://reactnavigation.org/docs/native-stack-navigator) | [Tab Navigation](https://reactnavigation.org/docs/bottom-tab-navigator) 
+
+## Modify the Recipe App
+
+- Recipe Details Page Redesign
+- Nested Navigation using Bottom Tab & Stack
