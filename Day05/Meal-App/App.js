@@ -87,9 +87,30 @@ export default function App() {
           />
         </Tab.Navigator> */}
 
-        <Drawer.Navigator>
-          <Drawer.Screen name="Home" component={CountryScreen} />
-          {/* <Drawer.Screen name="Foods" component={FoodScreen} /> */}
+        <Drawer.Navigator
+          screenOptions={{
+            drawerStyle: {
+              backgroundColor: "#FFAD60",
+              width: 250,
+              borderTopRightRadius: 0,
+              borderBottomRightRadius: 0,
+            },
+            headerStyle: { backgroundColor: "#FFAD60" },
+            drawerContentStyle: {
+              paddingTop: 10,
+            },
+            drawerLabelStyle: { fontSize: 16 },
+            drawerActiveTintColor: "white",
+            drawerInactiveTintColor: "#A66E38",
+            drawerActiveBackgroundColor: "#A66E38",
+          }}
+        >
+          <Drawer.Screen
+            name="Home"
+            component={CountryScreen}
+            options={{ drawerLabel: "Country" }}
+          />
+          <Drawer.Screen name="Foods" component={FoodScreen} />
           <Drawer.Screen name="RecipeDetails" component={RecipeDetails} />
         </Drawer.Navigator>
       </NavigationContainer>

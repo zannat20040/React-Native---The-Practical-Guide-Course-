@@ -37,3 +37,17 @@ iii. wrap it by <GestureHandlerRootView></GestureHandlerRootView>
     </Drawer.Navigator>
 
 7. Possible screenOptions for Drawer navigation :
+i. drawerLabel: "Custom Label"
+ii. drawerInactiveBackgroundColor: "white"
+iii. drawerActiveBackgroundColor: "rgba(255, 99, 71, 0.2)"
+iv. drawerInactiveTintColor: "gray"
+v. drawerActiveTintColor: "tomato"
+vi. drawerLabelStyle: { fontSize: 16, fontWeight: "bold" }
+vii. drawerContentStyle: { paddingTop: 20 }
+viii.  drawerStyle: {
+              backgroundColor: "#FFAD60",
+              width: 250,
+              borderTopRightRadius: 0, 
+              borderBottomRightRadius: 0,
+            },
+ix. 
