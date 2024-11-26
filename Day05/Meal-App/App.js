@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native"; // Navigation co
 import { createStackNavigator } from "@react-navigation/stack"; // Stack navigator
 import FoodScreen from "./screens/FoodScreen";
 import RecipeDetails from "./screens/RecipeDetails";
-
+import AntDesign from '@expo/vector-icons/AntDesign';
 // Example screen components
 const Stack = createStackNavigator();
 
@@ -24,7 +24,15 @@ export default function App() {
         >
           <Stack.Screen name="Home" component={CountryScreen} />
           <Stack.Screen name="Foods" component={FoodScreen} />
-          <Stack.Screen name="RecipeDetails" component={RecipeDetails} />
+          <Stack.Screen
+            name="RecipeDetails"
+            options={{
+              headerRight: () => (
+                <AntDesign name="staro" size={24} color="black" style={{paddingRight:10, color:'white'}}/>
+              ),
+            }}
+            component={RecipeDetails}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
