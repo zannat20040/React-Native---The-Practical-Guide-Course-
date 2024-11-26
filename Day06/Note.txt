@@ -1,0 +1,8 @@
+1. setOption to customize the stack header
+  screenOptions={{
+            headerStyle: { backgroundColor: "#A66E38" },
+            headerTintColor: "white",
+          }}
+
+
+2. dynamic routing name chnge =   navigation.setOptions({title:`Foods of ${country}`})

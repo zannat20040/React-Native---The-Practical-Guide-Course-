@@ -1,12 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { FlatList } from "react-native-gesture-handler";
 import FoodGrid from "../components/FoodGrid";
 import recipe from "../data/dummydata";
 
 export default function FoodScreen({ route, navigation }) {
   const country = route.params.country;
-  navigation.setOptions({title:`Foods of ${country}`})
+
+  useLayoutEffect(() => {
+    navigation.setOptions({ title: `Foods of ${country}` });
+  }, [country]);
 
   const foods = recipe.find((item) => item.country === country).foods;
 
