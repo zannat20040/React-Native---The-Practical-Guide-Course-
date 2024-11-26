@@ -6,16 +6,20 @@ import { NavigationContainer } from "@react-navigation/native"; // Navigation co
 import { createStackNavigator } from "@react-navigation/stack"; // Stack navigator
 import FoodScreen from "./screens/FoodScreen";
 import RecipeDetails from "./screens/RecipeDetails";
-import AntDesign from '@expo/vector-icons/AntDesign';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import Ionicons from "@expo/vector-icons/Ionicons";
+
 // Example screen components
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <>
-      <StatusBar style="light" />
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <StatusBar style="dark" />
       <NavigationContainer>
-        <Stack.Navigator
+        {/* <Stack.Navigator
           initialRouteName="Home"
           screenOptions={{
             headerStyle: { backgroundColor: "#A66E38" },
@@ -24,18 +28,61 @@ export default function App() {
         >
           <Stack.Screen name="Home" component={CountryScreen} />
           <Stack.Screen name="Foods" component={FoodScreen} />
-          <Stack.Screen
-            name="RecipeDetails"
+          <Stack.Screen name="RecipeDetails" component={RecipeDetails} />
+        </Stack.Navigator> */}
+        <Tab.Navigator
+          screenOptions={{
+            tabBarStyle: { backgroundColor: "#FFAD60", height: 60 },
+            tabBarLabelStyle: {
+              color: "black",
+              fontSize: 13,
+            },
+            tabBarInactiveTintColor: "gray"
+          }}
+        >
+          <Tab.Screen
+            name="Home"
+            component={CountryScreen}
             options={{
-              headerRight: () => (
-                <AntDesign name="staro" size={24} color="black" style={{paddingRight:10, color:'white'}}/>
+              title:'Country',
+              tabBarIcon: ({ focused}) => (
+                <Ionicons
+                  name={focused ? "home" : "home-outline"}
+                  size={20}
+                  color={'black'}
+                />
               ),
             }}
-            component={RecipeDetails}
           />
-        </Stack.Navigator>
+          <Tab.Screen
+            name="Foods"
+            component={FoodScreen}
+            options={{
+              tabBarIcon: ({ focused}) => (
+                <Ionicons
+                  name={focused ? "fast-food" : "fast-food-outline"}
+                  size={20}
+                  color={'black'}
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="RecipeDetails"
+            component={RecipeDetails}
+            options={{
+              tabBarIcon: ({ focused }) => (
+                <Ionicons
+                  name={focused ? "paper-plane" : "paper-plane-outline"}
+                  size={20}
+                  color={'black'}
+                />
+              ),
+            }}
+          />
+        </Tab.Navigator>
       </NavigationContainer>
-    </>
+    </GestureHandlerRootView>
   );
 }
 

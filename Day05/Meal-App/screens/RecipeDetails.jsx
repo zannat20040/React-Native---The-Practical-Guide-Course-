@@ -1,15 +1,31 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useLayoutEffect } from "react";
 import recipe from "../data/dummydata";
+import AntDesign from "@expo/vector-icons/AntDesign";
+
 
 export default function RecipeDetails({ route, navigation }) {
   const name = route.params.name;
   const allfoods = recipe.flatMap((item) => item.foods);
   const details = allfoods.filter((food) => food.name === name)[0];
 
+  const FavouriteHandler =()=>{
+    console.log('pressed')
+  }
   // Update navigation title
   useLayoutEffect(() => {
-    navigation.setOptions({ title: name });
+    navigation.setOptions({
+      title: name,
+      headerRight: () => (
+        <AntDesign
+        onPress={FavouriteHandler}
+          name="staro"
+          size={24}
+          color="black"
+          style={{ paddingRight: 10, color: "white" }}
+        />
+      ),
+    });
   }, [navigation, name]);
 
   return (
@@ -42,16 +58,16 @@ export default function RecipeDetails({ route, navigation }) {
           <Text style={styles.ingredientsText}>Ingredients</Text>
           {details?.ingredients?.map((item, index) => (
             <Text key={index} style={styles.commontext}>
-             {index+1}. {item}
+              {index + 1}. {item}
             </Text>
           ))}
         </View>
         {/* instruction */}
-        <View style={{ marginTop: 6, marginBottom:40 }}>
+        <View style={{ marginTop: 6, marginBottom: 40 }}>
           <Text style={styles.ingredientsText}>How to make</Text>
           {details?.instructions?.map((item, index) => (
             <Text key={index} style={styles.commontext}>
-               {index+1}. {item}
+              {index + 1}. {item}
             </Text>
           ))}
         </View>

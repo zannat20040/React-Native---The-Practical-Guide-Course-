@@ -6,3 +6,25 @@
 
 
 2. dynamic routing name chnge =   navigation.setOptions({title:`Foods of ${country}`})
+
+3. we can add something on header using setOption({headerRight:()=>{'hello'}})
+
+4. Tab Navigation :
+
+i. const Tab = createBottomTabNavigator();
+ii. <NavigationContainer>
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={CountryScreen} />
+      <Tab.Screen name="Foods" component={FoodScreen} />
+      <Tab.Screen name="RecipeDetails" component={RecipeDetails} />
+    </Tab.Navigator>
+    </ NavigationContainer>
+iii. wrap it by <GestureHandlerRootView></GestureHandlerRootView>
+
+5. Possible screenOptions for Tab navigation :
+
+i.  tabBarLabelStyle: { fontSize: 12, fontWeight: "bold" },
+ii. tabBarStyle: { backgroundColor: 'white', height: 60 }
+iii. tabBarBackground: () => <CustomBackgroundComponent />
+iv.tabBarActiveTintColor: "tomato"
+v. tabBarInactiveTintColor: "gray"
