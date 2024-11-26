@@ -22,9 +22,18 @@ ii. <NavigationContainer>
 iii. wrap it by <GestureHandlerRootView></GestureHandlerRootView>
 
 5. Possible screenOptions for Tab navigation :
+  i.  tabBarLabelStyle: { fontSize: 12, fontWeight: "bold" },
+  ii. tabBarStyle: { backgroundColor: 'white', height: 60 }
+  iii. tabBarBackground: () => <CustomBackgroundComponent />
+  iv.tabBarActiveTintColor: "tomato"
+  v. tabBarInactiveTintColor: "gray"
 
-i.  tabBarLabelStyle: { fontSize: 12, fontWeight: "bold" },
-ii. tabBarStyle: { backgroundColor: 'white', height: 60 }
-iii. tabBarBackground: () => <CustomBackgroundComponent />
-iv.tabBarActiveTintColor: "tomato"
-v. tabBarInactiveTintColor: "gray"
+6. Drawer navigation:
+ i. const Drawer = createDrawerNavigator();
+ ii.<Drawer.Navigator>
+      <Drawer.Screen name="Home" component={CountryScreen} />
+      {/* <Drawer.Screen name="Foods" component={FoodScreen} /> */}
+      <Drawer.Screen name="RecipeDetails" component={RecipeDetails} />
+    </Drawer.Navigator>
+
+7. Possible screenOptions for Drawer navigation :

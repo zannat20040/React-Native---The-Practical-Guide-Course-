@@ -9,10 +9,12 @@ import RecipeDetails from "./screens/RecipeDetails";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 
 // Example screen components
 // const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
+// const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
@@ -30,7 +32,8 @@ export default function App() {
           <Stack.Screen name="Foods" component={FoodScreen} />
           <Stack.Screen name="RecipeDetails" component={RecipeDetails} />
         </Stack.Navigator> */}
-        <Tab.Navigator
+
+        {/* <Tab.Navigator
           screenOptions={{
             tabBarStyle: { backgroundColor: "#FFAD60", height: 60 },
             tabBarLabelStyle: {
@@ -82,7 +85,13 @@ export default function App() {
               ),
             }}
           />
-        </Tab.Navigator>
+        </Tab.Navigator> */}
+
+        <Drawer.Navigator>
+          <Drawer.Screen name="Home" component={CountryScreen} />
+          {/* <Drawer.Screen name="Foods" component={FoodScreen} /> */}
+          <Drawer.Screen name="RecipeDetails" component={RecipeDetails} />
+        </Drawer.Navigator>
       </NavigationContainer>
     </GestureHandlerRootView>
   );
