@@ -37,7 +37,9 @@ export default function App() {
               color: "black",
               fontSize: 13,
             },
-            tabBarInactiveTintColor: "gray"
+            tabBarInactiveTintColor: "gray",
+            headerStyle: { backgroundColor: "#FFAD60" },
+            headerTintColor: "black",
           }}
         >
           <Tab.Screen
