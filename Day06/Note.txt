@@ -50,4 +50,5 @@ viii.  drawerStyle: {
               borderTopRightRadius: 0, 
               borderBottomRightRadius: 0,
             },
-ix. 
+ix. headerShown:false
+
