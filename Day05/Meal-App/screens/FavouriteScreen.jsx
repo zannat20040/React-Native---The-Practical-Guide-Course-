@@ -2,6 +2,7 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import React, { useContext, useState } from "react";
 import { FavouriteContext } from "../context/FavouriteProvider";
 import recipe from "../data/dummydata";
+import FavouriteListGrid from "../components/FavouriteListGrid";
 
 export default function FavouriteScreen() {
   const { favouriteRecipe } = useContext(FavouriteContext);
@@ -23,7 +24,7 @@ export default function FavouriteScreen() {
       ) : (
         <FlatList
           data={favouriteList}
-          renderItem={({item}) => console.log(item)}
+          renderItem={({ item }) => <FavouriteListGrid item={item} />}
           keyExtractor={(item) => item.name}
         />
       )}
@@ -35,6 +36,6 @@ const styles = StyleSheet.create({
   constainer: {
     flex: 1,
     justifyContent: "center",
-    padding: 20,
+    padding: 10,
   },
 });
