@@ -8,14 +8,20 @@ export default function RecipeDetails({ route, navigation }) {
   const name = route.params.name;
   const allfoods = recipe.flatMap((item) => item.foods);
   const details = allfoods.filter((food) => food.name === name)[0];
-  const { favouriteRecipe, setFavouriteRecipe } = useContext(FavouriteContext);
+  const { favouriteRecipe, addFavourite, removeFavourite } =
+    useContext(FavouriteContext);
   const [isFavourite, setIsFavourite] = useState(false);
 
   const FavouriteHandler = () => {
-    // setIsFavourite(!isFavourite);
-    setFavouriteRecipe((current) => [...current, details]);
+    const isExist = favouriteRecipe.includes(name);
+    if (isExist) {
+      removeFavourite(name);
+      setIsFavourite(false);
+    } else {
+      addFavourite(name);
+      setIsFavourite(true);
+    }
   };
-  console.log(favouriteRecipe.length);
 
   // Update navigation title
   useLayoutEffect(() => {
@@ -31,7 +37,7 @@ export default function RecipeDetails({ route, navigation }) {
         />
       ),
     });
-  }, [navigation, name, isFavourite]);
+  }, [navigation, name, favouriteRecipe]);
 
   return (
     <View style={styles.container}>
