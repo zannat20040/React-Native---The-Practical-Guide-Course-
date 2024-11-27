@@ -3,42 +3,34 @@ import React from "react";
 
 export default function FavouriteListGrid({ item }) {
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container}>
       <Image
-        style={{ borderTopLeftRadius: 10, borderTopRightRadius: 10 }}
+        style={{ }}
         source={{ uri: item.image }}
-        height={200}
+        width={120}
       />
       <View style={styles.textContainer}>
-        <Text style={{ fontSize: 22, fontWeight: 600 }}>{item.name}</Text>
-        <Text style={{ fontSize: 15, marginVertical: 10 }}>
+        <Text style={{ fontSize: 18, fontWeight: 600 }}>{item.name}</Text>
+        <Text style={{ fontSize: 15, marginTop: 5 }}>
           {item.description}
         </Text>
-        <Pressable onPress={() => HandleDetails(item)}>
-          <Text style={styles.button}>See the recipe</Text>
-        </Pressable>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection:'row',
+    justifyContent:'center',
     backgroundColor: "#FFAD60",
-    borderRadius: 10,
-    margin: 5,
+    borderRadius: 5,
     shadowColor: "gray",
     elevation: 7,
+    overflow:'hidden'
   },
   textContainer: {
+    flex: 1,         
     padding: 20,
-  },
-  button: {
-    backgroundColor: "black",
-    padding: 10,
-    color: "white",
-    borderRadius: 10,
-    textAlign: "center",
-    fontWeight: 600,
   },
 });
