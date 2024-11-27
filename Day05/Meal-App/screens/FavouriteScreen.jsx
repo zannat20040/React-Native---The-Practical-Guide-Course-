@@ -13,8 +13,6 @@ export default function FavouriteScreen() {
     favouriteRecipe.includes(food.name)
   );
 
-  console.log(favouriteList.length);
-
   return (
     <View style={styles.constainer}>
       {favouriteRecipe.length <= 0 ? (
