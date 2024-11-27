@@ -1,0 +1,2 @@
+1. We can use react context for globaly state manage
+2. We can use react toolkit for globaly state manage

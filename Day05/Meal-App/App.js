@@ -12,6 +12,8 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import FavouriteScreen from "./screens/FavouriteScreen";
 import FavouriteProvider from "./context/FavouriteProvider";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 // Example screen components
 const Stack = createStackNavigator();
@@ -139,7 +141,8 @@ export default function App() {
     // ===============
 
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <FavouriteProvider>
+      {/* <FavouriteProvider> */}
+      <Provider store={store}>
         <StatusBar style="dark" />
         <NavigationContainer>
           <Tab.Navigator
@@ -185,7 +188,8 @@ export default function App() {
             />
           </Tab.Navigator>
         </NavigationContainer>
-      </FavouriteProvider>
+      </Provider>
+      {/* </FavouriteProvider> */}
     </GestureHandlerRootView>
   );
 }
