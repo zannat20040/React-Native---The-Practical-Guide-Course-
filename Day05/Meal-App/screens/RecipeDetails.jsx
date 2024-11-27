@@ -8,6 +8,7 @@ export default function RecipeDetails({ route, navigation }) {
   const name = route.params.name;
   const allfoods = recipe.flatMap((item) => item.foods);
   const details = allfoods.filter((food) => food.name === name)[0];
+  
   const { favouriteRecipe, addFavourite, removeFavourite } =
     useContext(FavouriteContext);
   const [isFavourite, setIsFavourite] = useState(false);

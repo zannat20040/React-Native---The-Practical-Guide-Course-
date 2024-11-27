@@ -1,10 +1,18 @@
-import { StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import React, { useContext, useState } from "react";
 import { FavouriteContext } from "../context/FavouriteProvider";
+import recipe from "../data/dummydata";
 
 export default function FavouriteScreen() {
   const { favouriteRecipe } = useContext(FavouriteContext);
-  console.log(favouriteRecipe);
+
+  const allfoods = recipe.flatMap((item) => item.foods);
+  console.log(allfoods);
+  const favouriteList = allfoods.filter((food) =>
+    favouriteRecipe.includes(food.name)
+  );
+
+  console.log(favouriteList.length);
 
   return (
     <View style={styles.constainer}>
@@ -13,9 +21,11 @@ export default function FavouriteScreen() {
           You don't have anything in favourites yet.
         </Text>
       ) : (
-        <View>
-          <Text>fovourite</Text>
-        </View>
+        <FlatList
+          data={favouriteList}
+          renderItem={({item}) => console.log(item)}
+          keyExtractor={(item) => item.name}
+        />
       )}
     </View>
   );
