@@ -1,5 +1,5 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import React, { useContext, useEffect, useLayoutEffect } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import recipe from "../data/dummydata";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { FavouriteContext } from "../context/FavouriteProvider";
@@ -9,11 +9,12 @@ export default function RecipeDetails({ route, navigation }) {
   const allfoods = recipe.flatMap((item) => item.foods);
   const details = allfoods.filter((food) => food.name === name)[0];
   const { favouriteRecipe, setFavouriteRecipe } = useContext(FavouriteContext);
+  const [isFavourite, setIsFavourite] = useState(false);
 
   const FavouriteHandler = () => {
-    console.log("pressed");
-    console.log(favouriteRecipe);
+    setIsFavourite(!isFavourite);
   };
+  console.log(isFavourite);
 
   // Update navigation title
   useLayoutEffect(() => {
@@ -22,14 +23,14 @@ export default function RecipeDetails({ route, navigation }) {
       headerRight: () => (
         <AntDesign
           onPress={FavouriteHandler}
-          name="staro"
+          name={isFavourite ? "star" : "staro"}
           size={24}
           color="black"
-          style={{ paddingRight: 10, color: "white" }}
+          style={{ paddingRight: 10 }}
         />
       ),
     });
-  }, [navigation, name]);
+  }, [navigation, name, isFavourite]);
 
   return (
     <View style={styles.container}>
