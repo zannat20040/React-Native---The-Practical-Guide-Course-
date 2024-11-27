@@ -12,7 +12,6 @@ export default function FavouriteProvider({ children }) {
   const removeFavourite = (name) => {
     setFavouriteRecipe(favouriteRecipe.filter((item) => item !== name));
   };
-  console.log("========>", favouriteRecipe);
   const info = {
     favouriteRecipe,
     setFavouriteRecipe,
