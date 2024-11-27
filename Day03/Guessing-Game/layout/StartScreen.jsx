@@ -20,7 +20,6 @@ export default function StartScreen({ setScreen, getNumber, setGetNumber }) {
 
   const handleConfirm = () => {
     const choosenNumber = parseInt(getNumber);
-    // console.log("handleConfirm");
 
     if (isNaN(choosenNumber)) {
       Alert.alert(
@@ -51,9 +50,6 @@ export default function StartScreen({ setScreen, getNumber, setGetNumber }) {
     } else {
       setScreen(1);
     }
-    // console.log(isNaN(chosenNumber))
-    // console.log(isNaN(getNumber))
-    // console.log(typeof(getNumber))
   };
 
   const { width, height } = useWindowDimensions();

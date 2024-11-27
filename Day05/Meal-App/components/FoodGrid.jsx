@@ -6,7 +6,6 @@ export default function FoodGrid({ item }) {
   const navigation = useNavigation();
 
   const HandleDetails = (item) => {
-    // console.log(item);
     navigation.navigate("RecipeDetails", { name: item.name });
   };
 

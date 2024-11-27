@@ -8,7 +8,6 @@ export default function FavouriteScreen() {
   const { favouriteRecipe } = useContext(FavouriteContext);
 
   const allfoods = recipe.flatMap((item) => item.foods);
-  console.log(allfoods);
   const favouriteList = allfoods.filter((food) =>
     favouriteRecipe.includes(food.name)
   );

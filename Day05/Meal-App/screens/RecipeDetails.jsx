@@ -6,7 +6,6 @@ import { FavouriteContext } from "../context/FavouriteProvider";
 
 export default function RecipeDetails({ route, navigation }) {
   const name = route.params.name;
-  console.log('name=====M',name)
   const allfoods = recipe.flatMap((item) => item.foods);
   const details = allfoods.filter((food) => food.name === name)[0];
 
@@ -27,6 +26,10 @@ export default function RecipeDetails({ route, navigation }) {
 
   // Update navigation title
   useLayoutEffect(() => {
+
+    const isExist = favouriteRecipe.includes(name);
+    setIsFavourite(isExist);
+
     navigation.setOptions({
       title: name,
       headerRight: () => (
@@ -39,7 +42,7 @@ export default function RecipeDetails({ route, navigation }) {
         />
       ),
     });
-  }, [navigation, name, favouriteRecipe]);
+  }, [navigation, name, favouriteRecipe, isFavourite]);
 
   return (
     <View style={styles.container}>

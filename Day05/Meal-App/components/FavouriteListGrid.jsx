@@ -6,7 +6,6 @@ export default function FavouriteListGrid({ item }) {
   const navigation = useNavigation();
 
   const HandleDetails = (item) => {
-    console.log("===>", item);
     navigation.navigate("Home", {
         screen: "RecipeDetails",
         params: { name: item.name },

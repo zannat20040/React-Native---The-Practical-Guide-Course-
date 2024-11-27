@@ -18,7 +18,6 @@ export default function App() {
 
   const getInput = (text) => {
     setStoreInput(text);
-    // console.log(text);
   };
 
   const addInput = () => {
