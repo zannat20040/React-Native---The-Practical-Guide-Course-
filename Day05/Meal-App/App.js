@@ -11,6 +11,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import FavouriteScreen from "./screens/FavouriteScreen";
+import FavouriteProvider from "./context/FavouriteProvider";
 
 // Example screen components
 const Stack = createStackNavigator();
@@ -138,51 +139,53 @@ export default function App() {
     // ===============
 
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <StatusBar style="dark" />
-      <NavigationContainer>
-        <Tab.Navigator
-          screenOptions={{
-            tabBarStyle: { backgroundColor: "#FFAD60", height: 60 },
-            tabBarLabelStyle: {
-              color: "black",
-              fontSize: 13,
-            },
-            tabBarInactiveTintColor: "gray",
-            headerStyle: { backgroundColor: "#FFAD60" },
-            headerTintColor: "black",
-            headerShown:false
-          }}
-        >
-          <Tab.Screen
-            name="Home"
-            component={FoodStack} 
-            options={{
-              title: "Country",
-              tabBarIcon: ({ focused }) => (
-                <Ionicons
-                  name={focused ? "home" : "home-outline"}
-                  size={20}
-                  color={"black"}
-                />
-              ),
+      <FavouriteProvider>
+        <StatusBar style="dark" />
+        <NavigationContainer>
+          <Tab.Navigator
+            screenOptions={{
+              tabBarStyle: { backgroundColor: "#FFAD60", height: 60 },
+              tabBarLabelStyle: {
+                color: "black",
+                fontSize: 13,
+              },
+              tabBarInactiveTintColor: "gray",
+              headerStyle: { backgroundColor: "#FFAD60" },
+              headerTintColor: "black",
+              headerShown: false,
             }}
-          />
-          <Tab.Screen
-            name="Favourite"
-            component={FavouriteScreen}
-            options={{
-              headerShown:true,
-              tabBarIcon: ({ focused }) => (
-                <Ionicons
-                  name={focused ? "fast-food" : "fast-food-outline"}
-                  size={20}
-                  color={"black"}
-                />
-              ),
-            }}
-          />
-        </Tab.Navigator>
-      </NavigationContainer>
+          >
+            <Tab.Screen
+              name="Home"
+              component={FoodStack}
+              options={{
+                title: "Country",
+                tabBarIcon: ({ focused }) => (
+                  <Ionicons
+                    name={focused ? "home" : "home-outline"}
+                    size={20}
+                    color={"black"}
+                  />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Favourite"
+              component={FavouriteScreen}
+              options={{
+                headerShown: true,
+                tabBarIcon: ({ focused }) => (
+                  <Ionicons
+                    name={focused ? "fast-food" : "fast-food-outline"}
+                    size={20}
+                    color={"black"}
+                  />
+                ),
+              }}
+            />
+          </Tab.Navigator>
+        </NavigationContainer>
+      </FavouriteProvider>
     </GestureHandlerRootView>
   );
 }

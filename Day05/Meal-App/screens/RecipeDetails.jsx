@@ -1,15 +1,18 @@
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useContext, useEffect, useLayoutEffect } from "react";
 import recipe from "../data/dummydata";
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { FavouriteContext } from "../context/FavouriteProvider";
 
 export default function RecipeDetails({ route, navigation }) {
   const name = route.params.name;
   const allfoods = recipe.flatMap((item) => item.foods);
   const details = allfoods.filter((food) => food.name === name)[0];
+  const { favouriteRecipe, setFavouriteRecipe } = useContext(FavouriteContext);
 
   const FavouriteHandler = () => {
     console.log("pressed");
+    console.log(favouriteRecipe);
   };
 
   // Update navigation title
