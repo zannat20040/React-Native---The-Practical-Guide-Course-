@@ -12,9 +12,10 @@ export default function RecipeDetails({ route, navigation }) {
   const [isFavourite, setIsFavourite] = useState(false);
 
   const FavouriteHandler = () => {
-    setIsFavourite(!isFavourite);
+    // setIsFavourite(!isFavourite);
+    setFavouriteRecipe((current) => [...current, details]);
   };
-  console.log(isFavourite);
+  console.log(favouriteRecipe.length);
 
   // Update navigation title
   useLayoutEffect(() => {
