@@ -6,6 +6,29 @@ This README file captures my day-by-day learning journey in the React Native cou
 Now, I am going to add my Day 01 learning. Moving forward, I will continue updating this file with the topics I cover each day, reflecting on what I’ve learned.
 
 
+
+# Overview
+
+Here’s a short overview of what I learned from my React Native course:
+
+1. **Core Concepts:**
+- React fundamentals: `Components`, `Props`, `State`.
+- JSX syntax and component-based architecture.
+
+2. **State Management:**
+
+- Managing state with hooks (`useState`, `useEffect`, `useContext`).
+- Advanced state management using `Context API`.
+
+3. **UI Design & Styling:**
+
+- Using built-in styling.
+- Responsive design principles and `Flexbox` for layout management.
+
+4. **Navigation:**
+
+- Implementing navigation using libraries like `React Navigation`.
+- Handling `stack`, `tab`, and `drawer` navigators.
 ## Day-01, 06 November
 
  - `Introduction` to React Native and its `architecture`
