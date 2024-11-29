@@ -141,8 +141,8 @@ export default function App() {
     // ===============
 
     <GestureHandlerRootView style={{ flex: 1 }}>
-      {/* <FavouriteProvider> */}
-      <Provider store={store}>
+      <FavouriteProvider>
+        {/* <Provider store={store}> */}
         <StatusBar style="dark" />
         <NavigationContainer>
           <Tab.Navigator
@@ -188,8 +188,8 @@ export default function App() {
             />
           </Tab.Navigator>
         </NavigationContainer>
-      </Provider>
-      {/* </FavouriteProvider> */}
+        {/* </Provider> */}
+      </FavouriteProvider>
     </GestureHandlerRootView>
   );
 }
