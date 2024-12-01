@@ -1,13 +1,20 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Alert, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import { Colors, globalCSSStyles } from "../globalStyle/globalStyle";
-import { Button, TextInput } from "react-native-paper";
+import { Button, Dialog, Portal, TextInput } from "react-native-paper";
 
 export default function ExpenseAdd() {
   const [expense, setExpense] = React.useState("");
   const [amount, setAmount] = React.useState("");
   const [date, setDate] = React.useState("");
-  const [error, setError] = useState("");
+  const [dialogText, setDialogText] = useState("");
+  const [dialogTitle, setDialogTitle] = useState("");
+
+  const [visible, setVisible] = React.useState(false);
+
+  // const showDialog = () => ;
+
+  const hideDialog = () => setVisible(false);
 
   const isValidDate = (dateStr) => {
     const dateRegex = /^(\d{2})-(\d{2})-(\d{4})$/;
@@ -26,23 +33,39 @@ export default function ExpenseAdd() {
     if (dateObj > new Date()) {
       return "Date cannot be in the future.";
     }
-    return "";
   };
 
   const ExpenseAddHandler = () => {
-    setError("");
+    setDialogTitle("");
+    setDialogText("");
     if (!expense || !amount || !date) {
-      setError("Please fillup all field.");
+      setVisible(true);
+      setDialogTitle("Alert");
+      setDialogText("Please fillup all field.");
+      return;
     }
     if (expense.length > 50) {
-      setError("Please write within 50 character.");
+      setVisible(true);
+      setDialogTitle("Alert");
+      setDialogText("Please write within 50 character.");
+      return;
     }
     const dateError = isValidDate(date);
     if (dateError) {
-      setError(dateError);
+      setVisible(true);
+      setDialogTitle("Alert");
+      setDialogText(dateError);
       return;
     }
-    setError("Expense added successfully!");
+
+    const expenseDetails = {
+      expense,
+      amount,
+      date,
+    };
+    setDialogText("Expense added successfully");
+    setDialogTitle("Success");
+    setVisible(true);
   };
   return (
     <View style={[globalCSSStyles.container]}>
@@ -78,9 +101,7 @@ export default function ExpenseAdd() {
           onChangeText={(value) => setDate(value)}
         />
       </View>
-      <View style={styles.marginTop}>
-        <Text style={styles.errorText}>{error}</Text>
-      </View>
+
       <View style={styles.marginTop}>
         <Button
           buttonColor={Colors.primary}
@@ -90,6 +111,22 @@ export default function ExpenseAdd() {
           Press me
         </Button>
       </View>
+
+      {/* alert */}
+      <View>
+        {/* <Button onPress={showDialog}>Show Dialog</Button> */}
+        <Portal>
+          <Dialog visible={visible} onDismiss={hideDialog}>
+            <Dialog.Title>{dialogTitle}</Dialog.Title>
+            <Dialog.Content>
+              <Text variant="bodyMedium">{dialogText}</Text>
+            </Dialog.Content>
+            <Dialog.Actions>
+              <Button onPress={hideDialog}>Ok</Button>
+            </Dialog.Actions>
+          </Dialog>
+        </Portal>
+      </View>
     </View>
   );
 }
@@ -98,8 +135,8 @@ const styles = StyleSheet.create({
   marginTop: {
     marginTop: 10,
   },
-  errorText:{
-    fontSize:16,
-    color:'red'
-  }
+  errorText: {
+    fontSize: 16,
+    color: "red",
+  },
 });
