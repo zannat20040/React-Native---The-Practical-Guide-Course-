@@ -13,24 +13,6 @@ export default function ExpenseAdd() {
   const [visible, setVisible] = React.useState(false);
   const { HandleExpense } = useContext(ExpenseContext);
 
-  // const isValidDate = (dateStr) => {
-  //   const dateRegex = /^(\d{2})-(\d{2})-(\d{4})$/;
-  //   if (!dateRegex.test(dateStr)) {
-  //     return "Invalid date format. Use DD-MM-YYYY.";
-  //   }
-  //   const [day, month, year] = dateStr.split("-").map(Number);
-  //   const dateObj = new Date(year, month - 1, day);
-  //   if (
-  //     dateObj.getDate() !== day ||
-  //     dateObj.getMonth() !== month - 1 ||
-  //     dateObj.getFullYear() !== year
-  //   ) {
-  //     return "Invalid date. Please check the values.";
-  //   }
-  //   if (dateObj > new Date()) {
-  //     return "Date cannot be in the future.";
-  //   }
-  // };
 
   const ExpenseAddHandler = () => {
     setDialogTitle("");
@@ -133,8 +115,5 @@ const styles = StyleSheet.create({
   marginTop: {
     marginTop: 10,
   },
-  errorText: {
-    fontSize: 16,
-    color: "red",
-  },
+  
 });
