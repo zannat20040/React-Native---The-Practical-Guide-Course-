@@ -14,7 +14,7 @@ export default function BudgetSet() {
   const [dialogText, setDialogText] = useState("");
   const [dialogTitle, setDialogTitle] = useState("");
   const [visible, setVisible] = React.useState(false);
-  const { HandleExpense } = useContext(ExpenseContext);
+  const { HandleBudget } = useContext(ExpenseContext);
 
   const BudgetHandler = () => {
     setDialogTitle("");
@@ -52,7 +52,7 @@ export default function BudgetSet() {
       startFrom: date,
       willEnd: formattedEndDate,
     };
-    console.log(budgetDetails);
+    HandleBudget(budgetDetails);
 
     // HandleExpense(expenseDetails);
     setDialogText("Budget added successfully");
