@@ -22,6 +22,7 @@ export default function App() {
           <Tabs.Navigator
             screenOptions={{
               tabBarShowLabel: false,
+              tabBarHideOnKeyboard:true,
               // tabBarActiveBackgroundColor: Colors.light,
               // tabBarInactiveBackgroundColor: Colors.soft,
               tabBarActiveTintColor: Colors.primary,

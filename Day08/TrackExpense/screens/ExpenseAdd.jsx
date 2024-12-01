@@ -1,6 +1,6 @@
-import { Alert, StyleSheet, Text, View } from "react-native";
+import {  ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useContext, useState } from "react";
-import { Colors, globalCSSStyles } from "../globalStyle/globalStyle";
+import { Colors, globalCSSStyles, isValidDate } from "../globalStyle/globalStyle";
 import { Button, Dialog, Portal, TextInput } from "react-native-paper";
 import { ExpenseContext } from "../context/ExpenseProvider";
 
@@ -11,27 +11,26 @@ export default function ExpenseAdd() {
   const [dialogText, setDialogText] = useState("");
   const [dialogTitle, setDialogTitle] = useState("");
   const [visible, setVisible] = React.useState(false);
-  // const hideDialog = () => setVisible(false);
   const { HandleExpense } = useContext(ExpenseContext);
 
-  const isValidDate = (dateStr) => {
-    const dateRegex = /^(\d{2})-(\d{2})-(\d{4})$/;
-    if (!dateRegex.test(dateStr)) {
-      return "Invalid date format. Use DD-MM-YYYY.";
-    }
-    const [day, month, year] = dateStr.split("-").map(Number);
-    const dateObj = new Date(year, month - 1, day);
-    if (
-      dateObj.getDate() !== day ||
-      dateObj.getMonth() !== month - 1 ||
-      dateObj.getFullYear() !== year
-    ) {
-      return "Invalid date. Please check the values.";
-    }
-    if (dateObj > new Date()) {
-      return "Date cannot be in the future.";
-    }
-  };
+  // const isValidDate = (dateStr) => {
+  //   const dateRegex = /^(\d{2})-(\d{2})-(\d{4})$/;
+  //   if (!dateRegex.test(dateStr)) {
+  //     return "Invalid date format. Use DD-MM-YYYY.";
+  //   }
+  //   const [day, month, year] = dateStr.split("-").map(Number);
+  //   const dateObj = new Date(year, month - 1, day);
+  //   if (
+  //     dateObj.getDate() !== day ||
+  //     dateObj.getMonth() !== month - 1 ||
+  //     dateObj.getFullYear() !== year
+  //   ) {
+  //     return "Invalid date. Please check the values.";
+  //   }
+  //   if (dateObj > new Date()) {
+  //     return "Date cannot be in the future.";
+  //   }
+  // };
 
   const ExpenseAddHandler = () => {
     setDialogTitle("");
@@ -67,7 +66,7 @@ export default function ExpenseAdd() {
     setVisible(true);
   };
   return (
-    <View style={[globalCSSStyles.container]}>
+    <ScrollView style={[globalCSSStyles.container]}>
       <View>
         <TextInput
           value={expense}
@@ -107,7 +106,7 @@ export default function ExpenseAdd() {
           mode="contained"
           onPress={ExpenseAddHandler}
         >
-          Press me
+          Add me
         </Button>
       </View>
 
@@ -126,7 +125,7 @@ export default function ExpenseAdd() {
           </Dialog>
         </Portal>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
