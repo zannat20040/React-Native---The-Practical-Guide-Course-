@@ -10,72 +10,75 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Feather from "@expo/vector-icons/Feather";
 import { PaperProvider } from "react-native-paper";
+import ExpenseProvider from "./context/ExpenseProvider";
 
 const Tabs = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <PaperProvider>
-      <NavigationContainer>
-        <Tabs.Navigator
-          screenOptions={{
-            tabBarShowLabel: false,
-            // tabBarActiveBackgroundColor: Colors.light,
-            // tabBarInactiveBackgroundColor: Colors.soft,
-            tabBarActiveTintColor: Colors.primary,
-            tabBarInactiveTintColor: Colors.secondary,
-            tabBarStyle: {
-              height: 60,
-            },
-          }}
-        >
-          <Tabs.Screen
-            name="setbudget"
-            component={BudgetSet}
-            options={{
-              title: "Your Monthly Budget",
-              tabBarIcon: ({ color, size }) => (
-                <MaterialIcons
-                  name="attach-money"
-                  size={size}
-                  color={color}
-                  style={{ paddingTop: 10 }}
-                />
-              ),
+    <ExpenseProvider>
+      <PaperProvider>
+        <NavigationContainer>
+          <Tabs.Navigator
+            screenOptions={{
+              tabBarShowLabel: false,
+              // tabBarActiveBackgroundColor: Colors.light,
+              // tabBarInactiveBackgroundColor: Colors.soft,
+              tabBarActiveTintColor: Colors.primary,
+              tabBarInactiveTintColor: Colors.secondary,
+              tabBarStyle: {
+                height: 60,
+              },
             }}
-          />
-          <Tabs.Screen
-            name="addexpense"
-            component={ExpenseAdd}
-            options={{
-              title: "Add New Expense",
-              tabBarIcon: ({ color, size }) => (
-                <Feather
-                  name="plus"
-                  size={size}
-                  color={color}
-                  style={{ paddingTop: 10 }}
-                />
-              ),
-            }}
-          />
-          <Tabs.Screen
-            name="showexpenses"
-            component={ShowAllExpense}
-            options={{
-              title: "See Your Expenses",
-              tabBarIcon: ({ color, size }) => (
-                <FontAwesome5
-                  name="list"
-                  size={size}
-                  color={color}
-                  style={{ paddingTop: 10 }}
-                />
-              ),
-            }}
-          />
-        </Tabs.Navigator>
-      </NavigationContainer>
-    </PaperProvider>
+          >
+            <Tabs.Screen
+              name="setbudget"
+              component={BudgetSet}
+              options={{
+                title: "Your Monthly Budget",
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialIcons
+                    name="attach-money"
+                    size={size}
+                    color={color}
+                    style={{ paddingTop: 10 }}
+                  />
+                ),
+              }}
+            />
+            <Tabs.Screen
+              name="addexpense"
+              component={ExpenseAdd}
+              options={{
+                title: "Add New Expense",
+                tabBarIcon: ({ color, size }) => (
+                  <Feather
+                    name="plus"
+                    size={size}
+                    color={color}
+                    style={{ paddingTop: 10 }}
+                  />
+                ),
+              }}
+            />
+            <Tabs.Screen
+              name="showexpenses"
+              component={ShowAllExpense}
+              options={{
+                title: "See Your Expenses",
+                tabBarIcon: ({ color, size }) => (
+                  <FontAwesome5
+                    name="list"
+                    size={size}
+                    color={color}
+                    style={{ paddingTop: 10 }}
+                  />
+                ),
+              }}
+            />
+          </Tabs.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
+    </ExpenseProvider>
   );
 }
