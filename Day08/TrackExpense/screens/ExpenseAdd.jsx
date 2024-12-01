@@ -79,6 +79,9 @@ export default function ExpenseAdd() {
         />
       </View>
       <View style={styles.marginTop}>
+        <Text style={styles.errorText}>{error}</Text>
+      </View>
+      <View style={styles.marginTop}>
         <Button
           buttonColor={Colors.primary}
           mode="contained"
@@ -86,9 +89,6 @@ export default function ExpenseAdd() {
         >
           Press me
         </Button>
-      </View>
-      <View>
-        <Text>{error}</Text>
       </View>
     </View>
   );
@@ -98,4 +98,8 @@ const styles = StyleSheet.create({
   marginTop: {
     marginTop: 10,
   },
+  errorText:{
+    fontSize:16,
+    color:'red'
+  }
 });
