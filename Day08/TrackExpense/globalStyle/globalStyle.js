@@ -4,3 +4,9 @@ export const Colors = {
   soft: "#424242",
   lightsoft: "#F5F5F5",
 };
+
+export const globalCSSStyles = {
+  container:{
+    padding: 20,
+  }
+};
