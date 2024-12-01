@@ -8,6 +8,27 @@ export default function ExpenseAdd() {
   const [amount, setAmount] = React.useState("");
   const [date, setDate] = React.useState("");
   const [error, setError] = useState("");
+  
+  const isValidDate = (dateStr) => {
+    const dateRegex = /^(\d{2})-(\d{2})-(\d{4})$/;
+    if (!dateRegex.test(dateStr)) {
+      return "Invalid date format. Use DD-MM-YYYY.";
+    }
+    const [day, month, year] = dateStr.split("-").map(Number);
+    const dateObj = new Date(year, month - 1, day);
+    if (
+      dateObj.getDate() !== day ||
+      dateObj.getMonth() !== month - 1 ||
+      dateObj.getFullYear() !== year
+    ) {
+      return "Invalid date. Please check the values.";
+    }
+    if (dateObj > new Date()) {
+      return "Date cannot be in the future.";
+    }
+    return "";
+  };
+
   const ExpenseAddHandler = () => {
     setError("");
     if (!expense || !amount || !date) {
