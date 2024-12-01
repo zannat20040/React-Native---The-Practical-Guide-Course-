@@ -8,7 +8,7 @@ export default function ExpenseAdd() {
   const [amount, setAmount] = React.useState("");
   const [date, setDate] = React.useState("");
   const [error, setError] = useState("");
-  
+
   const isValidDate = (dateStr) => {
     const dateRegex = /^(\d{2})-(\d{2})-(\d{4})$/;
     if (!dateRegex.test(dateStr)) {
@@ -37,6 +37,12 @@ export default function ExpenseAdd() {
     if (expense.length > 50) {
       setError("Please write within 50 character.");
     }
+    const dateError = isValidDate(date);
+    if (dateError) {
+      setError(dateError);
+      return;
+    }
+    setError("Expense added successfully!");
   };
   return (
     <View style={[globalCSSStyles.container]}>
