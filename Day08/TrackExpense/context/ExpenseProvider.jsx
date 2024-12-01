@@ -4,7 +4,7 @@ export const ExpenseContext = createContext();
 
 export default function ExpenseProvider({ children }) {
   const [allExpenses, setAllExpenses] = useState([]);
-  const [budget, setBudget] = useState({});
+  const [budget, setBudget] = useState(null);
 
   const HandleExpense = (data) => {
     setAllExpenses((prev) => [...prev, data]);
@@ -18,6 +18,7 @@ export default function ExpenseProvider({ children }) {
   const info = {
     HandleExpense,
     HandleBudget,
+    budget
   };
   return (
     <ExpenseContext.Provider value={info}>{children}</ExpenseContext.Provider>

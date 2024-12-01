@@ -1,6 +1,10 @@
-import {  ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useContext, useState } from "react";
-import { Colors, globalCSSStyles, isValidDate } from "../globalStyle/globalStyle";
+import {
+  Colors,
+  globalCSSStyles,
+  isValidDate,
+} from "../globalStyle/globalStyle";
 import { Button, Dialog, Portal, TextInput } from "react-native-paper";
 import { ExpenseContext } from "../context/ExpenseProvider";
 
@@ -12,7 +16,6 @@ export default function ExpenseAdd() {
   const [dialogTitle, setDialogTitle] = useState("");
   const [visible, setVisible] = React.useState(false);
   const { HandleExpense } = useContext(ExpenseContext);
-
 
   const ExpenseAddHandler = () => {
     setDialogTitle("");
@@ -115,5 +118,4 @@ const styles = StyleSheet.create({
   marginTop: {
     marginTop: 10,
   },
-  
 });
