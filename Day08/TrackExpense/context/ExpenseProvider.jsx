@@ -8,7 +8,7 @@ export default function ExpenseProvider({ children }) {
   const HandleExpense = (data) => {
     setAllExpenses((prev) => [...prev, data]);
   };
-  console.log(allExpenses)
+  console.log(allExpenses);
 
   const info = {
     HandleExpense,

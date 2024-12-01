@@ -1,7 +1,8 @@
 import { Alert, StyleSheet, Text, View } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Colors, globalCSSStyles } from "../globalStyle/globalStyle";
 import { Button, Dialog, Portal, TextInput } from "react-native-paper";
+import { ExpenseContext } from "../context/ExpenseProvider";
 
 export default function ExpenseAdd() {
   const [expense, setExpense] = React.useState("");
@@ -9,12 +10,9 @@ export default function ExpenseAdd() {
   const [date, setDate] = React.useState("");
   const [dialogText, setDialogText] = useState("");
   const [dialogTitle, setDialogTitle] = useState("");
-
   const [visible, setVisible] = React.useState(false);
-
-  // const showDialog = () => ;
-
-  const hideDialog = () => setVisible(false);
+  // const hideDialog = () => setVisible(false);
+  const { HandleExpense } = useContext(ExpenseContext);
 
   const isValidDate = (dateStr) => {
     const dateRegex = /^(\d{2})-(\d{2})-(\d{4})$/;
@@ -63,6 +61,7 @@ export default function ExpenseAdd() {
       amount,
       date,
     };
+    HandleExpense(expenseDetails);
     setDialogText("Expense added successfully");
     setDialogTitle("Success");
     setVisible(true);
@@ -116,13 +115,13 @@ export default function ExpenseAdd() {
       <View>
         {/* <Button onPress={showDialog}>Show Dialog</Button> */}
         <Portal>
-          <Dialog visible={visible} onDismiss={hideDialog}>
+          <Dialog visible={visible} onDismiss={() => setVisible(false)}>
             <Dialog.Title>{dialogTitle}</Dialog.Title>
             <Dialog.Content>
               <Text variant="bodyMedium">{dialogText}</Text>
             </Dialog.Content>
             <Dialog.Actions>
-              <Button onPress={hideDialog}>Ok</Button>
+              <Button onPress={() => setVisible(false)}>Ok</Button>
             </Dialog.Actions>
           </Dialog>
         </Portal>
