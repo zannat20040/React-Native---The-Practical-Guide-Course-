@@ -47,9 +47,6 @@ export default function ShowAllExpense() {
     const HandleEdit = () => {
       console.log("edit", id);
     };
-    // const HandleDelete = () => {
-    //   console.log("delete", id);
-    // };
     return Alert.alert(
       "Edit or Delete",
       "Which action do you want to perform?",

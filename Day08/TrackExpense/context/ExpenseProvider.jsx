@@ -14,7 +14,11 @@ export default function ExpenseProvider({ children }) {
   };
   const HandleDelete = (id) => {
     console.log("deleted id ", id);
+    const filterNewItem = allExpenses.filter((item) => item.id !== id);
+    setAllExpenses([...filterNewItem]);
   };
+
+  console.log(allExpenses);
 
   const info = {
     HandleExpense,
