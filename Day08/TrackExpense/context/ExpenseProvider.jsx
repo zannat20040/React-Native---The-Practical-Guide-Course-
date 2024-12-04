@@ -1,4 +1,5 @@
 import React, { Children, createContext, useState } from "react";
+import EditExpense from "../screens/EditExpense";
 
 export const ExpenseContext = createContext();
 
@@ -13,10 +14,13 @@ export default function ExpenseProvider({ children }) {
     setBudget(data);
   };
   const HandleDelete = (id) => {
-    console.log("deleted id ", id);
     const filterNewItem = allExpenses.filter((item) => item.id !== id);
     setAllExpenses([...filterNewItem]);
   };
+  // const HandleEdit = (id) => {
+  //   console.log("edited id ", id);
+  //   return <EditExpense />;
+  // };
 
   console.log(allExpenses);
 
@@ -26,6 +30,7 @@ export default function ExpenseProvider({ children }) {
     budget,
     allExpenses,
     HandleDelete,
+    // HandleEdit,
   };
   return (
     <ExpenseContext.Provider value={info}>{children}</ExpenseContext.Provider>

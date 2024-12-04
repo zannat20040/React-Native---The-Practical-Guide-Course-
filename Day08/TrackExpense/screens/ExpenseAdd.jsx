@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Colors,
   globalCSSStyles,
@@ -9,15 +9,32 @@ import { Button, Dialog, Portal, TextInput } from "react-native-paper";
 import { ExpenseContext } from "../context/ExpenseProvider";
 import { useNavigation } from "@react-navigation/native";
 
-export default function ExpenseAdd() {
+export default function ExpenseAdd({ route }) {
+  const id = route.params.id;
+  const { HandleExpense, allExpenses } = useContext(ExpenseContext);
+  const findItem = id ? allExpenses.find((item) => item.id === id) : null;
+  console.log("find==< ", findItem);
+
   const [expense, setExpense] = React.useState("");
   const [amount, setAmount] = React.useState("");
   const [date, setDate] = React.useState("");
   const [dialogText, setDialogText] = useState("");
   const [dialogTitle, setDialogTitle] = useState("");
   const [visible, setVisible] = React.useState(false);
-  const { HandleExpense, allExpenses } = useContext(ExpenseContext);
   const navigation = useNavigation();
+
+  // Sync state with findItem when id changes
+  useEffect(() => {
+    if (findItem) {
+      setExpense(findItem.expense);
+      setAmount(findItem.amount);
+      setDate(findItem.date);
+    } else {
+      setExpense("");
+      setAmount("");
+      setDate("");
+    }
+  }, [findItem, id]);
 
   const ExpenseAddHandler = () => {
     setDialogTitle("");
@@ -53,7 +70,18 @@ export default function ExpenseAdd() {
     setDialogTitle("Success");
     setVisible(true);
     navigation.navigate("showexpenses");
+    setExpense("");
+    setAmount("");
+    setDate("");
   };
+
+  const EditHandler = () => {
+    console.log("edit success");
+    setExpense("");
+    setAmount("");
+    setDate("");
+  };
+
   return (
     <ScrollView style={[globalCSSStyles.container]}>
       <View>
@@ -93,9 +121,9 @@ export default function ExpenseAdd() {
         <Button
           buttonColor={Colors.primary}
           mode="contained"
-          onPress={ExpenseAddHandler}
+          onPress={id ? EditHandler : ExpenseAddHandler}
         >
-          Add me
+          {id ? "Edit me" : "Add me"}
         </Button>
       </View>
 

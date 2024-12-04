@@ -12,6 +12,7 @@ import Feather from "@expo/vector-icons/Feather";
 import { PaperProvider } from "react-native-paper";
 import ExpenseProvider, { ExpenseContext } from "./context/ExpenseProvider";
 import { useContext } from "react";
+import EditExpense from "./screens/EditExpense";
 
 const Tabs = createBottomTabNavigator();
 
@@ -63,6 +64,11 @@ function AppTabs() {
           ),
         }}
       />
+      {/* <Tabs.Screen
+        name="editexpense"
+        component={EditExpense}
+      
+      /> */}
       <Tabs.Screen
         name="showexpenses"
         component={ShowAllExpense}

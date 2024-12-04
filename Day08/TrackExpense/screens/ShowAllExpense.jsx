@@ -9,51 +9,26 @@ import {
 import React, { useContext } from "react";
 import { ExpenseContext } from "../context/ExpenseProvider";
 import { Colors, globalCSSStyles } from "../globalStyle/globalStyle";
+import ListCard from "../components/ListCard";
+import { useNavigation } from "@react-navigation/native";
 
-export const ListCard = ({ renderItem, HandleClick }) => {
-  return (
-    <Pressable
-      onPress={() => HandleClick(renderItem.id)}
-      android_ripple={{ color: Colors.lightsoft }}
-      style={{
-        backgroundColor: Colors.secondary,
-        marginTop: 10,
-        borderRadius: 10,
-        padding: 20,
-      }}
-    >
-      <View style={{ flexDirection: "row" }}>
-        <View style={{ flex: 1 }}>
-          <Text style={{ fontSize: 18, fontWeight: 500 }}>
-            {renderItem?.expense}
-          </Text>
-        </View>
-        <View style={{ flex: 1 }}>
-          <Text style={{ fontSize: 20, fontWeight: 500, textAlign: "right" }}>
-            ${renderItem?.amount}
-          </Text>
-        </View>
-      </View>
-      <Text>{renderItem?.date}</Text>
-    </Pressable>
-  );
-};
 export default function ShowAllExpense() {
+  const navigation = useNavigation();
   const { allExpenses, HandleDelete } = useContext(ExpenseContext);
   const reverseExpenses = [...allExpenses].reverse();
 
   const HandleClick = (id) => {
-    console.log(id);
-    const HandleEdit = () => {
-      console.log("edit", id);
+    const HandleEdit = (id) => {
+      console.log("edited", id);
+      navigation.navigate("addexpense", { id: id });
     };
     return Alert.alert(
       "Edit or Delete",
       "Which action do you want to perform?",
       [
         { text: "Cancel" },
-        { text: "Edit", onPress:HandleEdit },
-        { text: "Delete", onPress: ()=>HandleDelete(id) },
+        { text: "Edit", onPress: () => HandleEdit(id) },
+        { text: "Delete", onPress: () => HandleDelete(id) },
       ]
     );
   };
