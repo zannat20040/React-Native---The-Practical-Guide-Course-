@@ -16,8 +16,8 @@ export default function ExpenseAdd() {
   const [dialogText, setDialogText] = useState("");
   const [dialogTitle, setDialogTitle] = useState("");
   const [visible, setVisible] = React.useState(false);
-  const { HandleExpense } = useContext(ExpenseContext);
-  const navigation = useNavigation()
+  const { HandleExpense, allExpenses } = useContext(ExpenseContext);
+  const navigation = useNavigation();
 
   const ExpenseAddHandler = () => {
     setDialogTitle("");
@@ -43,6 +43,7 @@ export default function ExpenseAdd() {
     }
 
     const expenseDetails = {
+      id: allExpenses.length + 1,
       expense,
       amount,
       date,
@@ -51,8 +52,7 @@ export default function ExpenseAdd() {
     setDialogText("Expense added successfully");
     setDialogTitle("Success");
     setVisible(true);
-    navigation.navigate('showexpenses')
-
+    navigation.navigate("showexpenses");
   };
   return (
     <ScrollView style={[globalCSSStyles.container]}>
