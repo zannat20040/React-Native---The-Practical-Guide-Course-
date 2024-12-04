@@ -7,6 +7,7 @@ import {
 } from "../globalStyle/globalStyle";
 import { Button, Dialog, Portal, TextInput } from "react-native-paper";
 import { ExpenseContext } from "../context/ExpenseProvider";
+import { useNavigation } from "@react-navigation/native";
 
 export default function BudgetSet() {
   const [amount, setAmount] = React.useState("");

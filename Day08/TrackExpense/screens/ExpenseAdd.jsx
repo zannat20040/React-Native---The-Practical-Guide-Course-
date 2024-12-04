@@ -7,6 +7,7 @@ import {
 } from "../globalStyle/globalStyle";
 import { Button, Dialog, Portal, TextInput } from "react-native-paper";
 import { ExpenseContext } from "../context/ExpenseProvider";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ExpenseAdd() {
   const [expense, setExpense] = React.useState("");
@@ -16,6 +17,7 @@ export default function ExpenseAdd() {
   const [dialogTitle, setDialogTitle] = useState("");
   const [visible, setVisible] = React.useState(false);
   const { HandleExpense } = useContext(ExpenseContext);
+  const navigation = useNavigation()
 
   const ExpenseAddHandler = () => {
     setDialogTitle("");
@@ -49,6 +51,8 @@ export default function ExpenseAdd() {
     setDialogText("Expense added successfully");
     setDialogTitle("Success");
     setVisible(true);
+    navigation.navigate('showexpenses')
+
   };
   return (
     <ScrollView style={[globalCSSStyles.container]}>

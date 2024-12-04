@@ -13,8 +13,6 @@ export default function ExpenseProvider({ children }) {
     setBudget(data);
   };
 
-  console.log(budget);
-
   const info = {
     HandleExpense,
     HandleBudget,
