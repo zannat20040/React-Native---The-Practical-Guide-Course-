@@ -1,18 +1,19 @@
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React, { useContext } from "react";
 import { ExpenseContext } from "../context/ExpenseProvider";
-import { Avatar, Card, IconButton } from "react-native-paper";
 import { Colors, globalCSSStyles } from "../globalStyle/globalStyle";
 
-export const ListCard = (item) => {
-  const renderItem = item.item;
-  const HandleClick = () => {
-    console.log("pressed");
-  };
-
+export const ListCard = ({ renderItem, HandleClick }) => {
   return (
     <Pressable
-      onPress={HandleClick}
+      onPress={() => HandleClick(renderItem.id)}
       android_ripple={{ color: Colors.lightsoft }}
       style={{
         backgroundColor: Colors.secondary,
@@ -38,8 +39,27 @@ export const ListCard = (item) => {
   );
 };
 export default function ShowAllExpense() {
-  const { allExpenses } = useContext(ExpenseContext);
+  const { allExpenses, HandleDelete } = useContext(ExpenseContext);
   const reverseExpenses = [...allExpenses].reverse();
+
+  const HandleClick = (id) => {
+    console.log(id);
+    const HandleEdit = () => {
+      console.log("edit", id);
+    };
+    // const HandleDelete = () => {
+    //   console.log("delete", id);
+    // };
+    return Alert.alert(
+      "Edit or Delete",
+      "Which action do you want to perform?",
+      [
+        { text: "Cancel" },
+        { text: "Edit", onPress:HandleEdit },
+        { text: "Delete", onPress: ()=>HandleDelete(id) },
+      ]
+    );
+  };
 
   return (
     <View style={globalCSSStyles.container}>
@@ -53,7 +73,9 @@ export default function ShowAllExpense() {
         <View>
           <FlatList
             data={reverseExpenses}
-            renderItem={(item) => <ListCard item={item.item} />}
+            renderItem={(item) => (
+              <ListCard renderItem={item.item} HandleClick={HandleClick} />
+            )}
           />
         </View>
       )}

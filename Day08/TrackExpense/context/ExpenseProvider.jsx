@@ -12,12 +12,16 @@ export default function ExpenseProvider({ children }) {
   const HandleBudget = (data) => {
     setBudget(data);
   };
+  const HandleDelete = (id) => {
+    console.log("deleted id ", id);
+  };
 
   const info = {
     HandleExpense,
     HandleBudget,
     budget,
     allExpenses,
+    HandleDelete,
   };
   return (
     <ExpenseContext.Provider value={info}>{children}</ExpenseContext.Provider>
