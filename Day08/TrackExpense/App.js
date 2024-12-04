@@ -20,7 +20,7 @@ function AppTabs() {
 
   return (
     <Tabs.Navigator
-      initialRouteName={budget ? "showexpenses" : "addexpense"}
+      initialRouteName={"showexpenses"}
       screenOptions={{
         tabBarShowLabel: false,
         tabBarHideOnKeyboard: true,

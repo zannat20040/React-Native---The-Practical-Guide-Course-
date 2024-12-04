@@ -16,7 +16,8 @@ export default function ExpenseProvider({ children }) {
   const info = {
     HandleExpense,
     HandleBudget,
-    budget
+    budget,
+    allExpenses,
   };
   return (
     <ExpenseContext.Provider value={info}>{children}</ExpenseContext.Provider>
